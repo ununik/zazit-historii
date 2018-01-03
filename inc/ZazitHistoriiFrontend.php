@@ -223,30 +223,6 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     <input type="text" name="email" value="' . ( isset( $_POST['email']) ? $email : null ) . '">
     </div>
      
-    <div>
-    <label for="website">Website</label>
-    <input type="text" name="website" value="' . ( isset( $_POST['website']) ? $website : null ) . '">
-    </div>
-     
-    <div>
-    <label for="firstname">First Name</label>
-    <input type="text" name="fname" value="' . ( isset( $_POST['fname']) ? $first_name : null ) . '">
-    </div>
-     
-    <div>
-    <label for="website">Last Name</label>
-    <input type="text" name="lname" value="' . ( isset( $_POST['lname']) ? $last_name : null ) . '">
-    </div>
-     
-    <div>
-    <label for="nickname">Nickname</label>
-    <input type="text" name="nickname" value="' . ( isset( $_POST['nickname']) ? $nickname : null ) . '">
-    </div>
-     
-    <div>
-    <label for="bio">About / Bio</label>
-    <textarea name="bio">' . ( isset( $_POST['bio']) ? $bio : null ) . '</textarea>
-    </div>
     <input type="submit" name="submit" value="Register"/>
     </form>
     ';
@@ -266,7 +242,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 'description'   =>   $bio,
             );
             $user = wp_insert_user( $userdata );
-            echo 'Registration complete. Goto <a href="' . get_site_url() . '/wp-login.php">login page</a>.';
+            echo 'Registration complete. Now you can log in.';
         }
     }
 
@@ -360,6 +336,17 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 echo '</div>';
             }
         }
+    }
+
+    public function get_user_name( $user_id )
+    {
+        $user = get_user_by('id', $user_id);
+
+        if ($user->user_firstname == '' && $user->user_lastname == '') {
+            return $user->user_login;
+        }
+
+        return $user->user_firstname . ' ' . $user->user_lastname;
     }
 }
 $frontend = new ZazitHistoriiFrontend();

@@ -23,3 +23,4 @@ add_filter( 'widget_text', 'do_shortcode' );
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 150, 150, true );
 add_image_size( 'event-thumbnail', 300, 200, true );
+add_filter('show_admin_bar', '__return_false');

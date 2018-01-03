@@ -286,6 +286,33 @@ body{
     margin-left: 10px;
     font-weight: normal;
 }
+.current_user{
+    color: white;
+    line-height: 40px;
+    display: inline-block;
+    margin-right: 25px;
+}
+.current_user img{
+    width: 34px;
+    height: auto;
+    border-radius: 100%;
+    margin-right: 10px;
+    margin-top: 3px;
+    margin-left: 45px;
+}
+.user_panel{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: 0px;
+    background-color: silver;
+    height: 40px;
+    line-height: 40px;
+}
+.user_panel a{
+    color: white;
+    text-decoration: none;
+}
 
 @media only screen and (min-width: 600px) {
     #main-header{

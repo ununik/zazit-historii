@@ -52,6 +52,7 @@ global $frontend;
                 } else {
                     ?>
                     <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>"><?php echo $frontend->get_user_name( get_current_user_id() ); ?></div>
+                    <a class="show_on_hover_profil" href="<?php echo get_home_url().'/'.__('new_event', THEME).'/'; ?>" title="<?php echo __('Add new event', THEME); ?>"><?php echo __('Add new event', THEME); ?></a>
                     <a class="show_on_hover_profil" href="<?php echo wp_logout_url( get_home_url() ); ?>" title="<?php echo __('Logout', THEME); ?>"><?php echo __('Logout', THEME); ?></a>
                     <?php
                 }

@@ -14,6 +14,10 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         add_filter( 'single_template', array( $this, 'import_single_template' ) );
         add_filter( 'archive_template', array( $this, 'import_archive_template' ) );
         /* Import templates */
+
+       add_action( 'pre_get_posts', array( $this, 'parse_request' ), 10, 2 );
+
+       add_filter( 'pre_get_posts', array( $this, 'custom_front_page' ) );
     }
 
     public function import_single_template( $single_template )
@@ -125,7 +129,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         $return = '<ul class="term-navigation">';
         foreach ($terms as $term) {
             $return .= '<li>';
-            $return .= '<a href="'.add_query_arg( 'ages', $term['data']->slug, get_post_type_archive_link( '_events' ) ) .'"';
+            $return .= '<a href="'. get_post_type_archive_link( '_events' ).$term['data']->slug .'/"';
 
             $return .= ' class="link ';
             if ($current_item_slug == $term['data']->slug) {
@@ -347,6 +351,53 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         }
 
         return $user->user_firstname . ' ' . $user->user_lastname;
+    }
+
+    public function parse_request ( $query ) {
+        global $wp_query;
+
+        // EVENT AGES
+        $matches = null;
+        preg_match('/events\/(.*)\//', $_SERVER["REQUEST_URI"], $matches, PREG_OFFSET_CAPTURE);
+
+        if((isset($matches[1][0]) && $matches[1][0] != '')  && !isset($_GET['custom'])) {
+            $_GET['custom'] = true;
+
+            if ( !is_numeric( substr( $matches[1][0], 0, 4 ) ) ) {
+                $_GET['ages'] = $matches[1][0];
+                $wp_query = new WP_Query(
+                    array(
+                        'post_type' => '_events',
+                        'action_trigger' => true
+                    )
+                );
+                $wp_query->is_archive = true;
+                $wp_query->is_post_type_archive = true;
+                $wp_query->is_singular = false;
+
+                return $wp_query;
+            }
+        }
+    }
+
+    public function custom_front_page($query){
+        global $wp_query;
+
+        if( is_front_page() && !isset($_GET['custom']) ){
+            $_GET['custom'] = true;
+            $wp_query = new WP_Query(
+                array(
+                    'post_type' => '_events',
+                    'action_trigger' => true
+                )
+            );
+            $wp_query->is_archive = true;
+            $wp_query->is_post_type_archive = true;
+            $wp_query->is_singular = false;
+
+            return $wp_query;
+        }
+        return $query;
     }
 }
 $frontend = new ZazitHistoriiFrontend();

@@ -46,6 +46,7 @@ if ( isset( $_GET[ __( 'ages', THEME ) ] ) ) {
 
 if ( count( $query->posts ) != 0 ) :
     echo '<div class="events-cards-wrapper">';
+    echo '<div id="g-map" style="width: 500px; height: 500px;"></div>';
     $i = 0;
     foreach ($query->posts as $event) :
         $i++;
@@ -121,3 +122,12 @@ else:
 endif;
 
 get_footer();
+
+
+?>
+<script>
+    $ = jQuery;
+    $.post('<?php echo get_home_url(); ?>/wp-admin/admin-ajax.php', {
+        action: 'map_data',
+    }).then(initAutocomplete)
+</script>

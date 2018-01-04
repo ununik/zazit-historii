@@ -133,24 +133,14 @@ class ZazitHistoriiBackend extends ZazitHistorii
                                 'title'  => __( 'Contact', THEME ),
                                 'fields' => [
                                     [
-                                        'id'    => '_event_email1',
+                                        'id'    => '_event_email',
                                         'type'  => 'text',
-                                        'label' => __( 'Email', THEME ).' 1',
+                                        'label' => __( 'Email', THEME ),
                                     ],
                                     [
-                                        'id'    => '_event_email2',
+                                        'id'    => '_event_tel',
                                         'type'  => 'text',
-                                        'label' => __( 'Email', THEME ).' 2',
-                                    ],
-                                    [
-                                        'id'    => '_event_tel1',
-                                        'type'  => 'text',
-                                        'label' => __( 'Phone', THEME ).' 1',
-                                    ],
-                                    [
-                                        'id'    => '_event_tel2',
-                                        'type'  => 'text',
-                                        'label' => __( 'Phone', THEME ).' 2',
+                                        'label' => __( 'Phone', THEME ),
                                     ],
                                     [
                                         'id'    => '_event_link',

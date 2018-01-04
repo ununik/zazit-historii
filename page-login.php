@@ -7,12 +7,7 @@ if (!is_user_logged_in()) {
         $redirect_url = get_home_url();
     }
 
-    echo '<div class="registration_form">';
-    echo '<h3>'.__( 'Registration', THEME ).'</h3>';
-    $frontend->custom_registration_function();
-    echo '</div>';
-
-    echo '<div class="login_form">';
+    echo '<div class="login_form half_page">';
     echo '<h3>'.__( 'Log In', THEME ).'</h3>';
     wp_login_form(array(
         'redirect'          => $redirect_url,
@@ -21,6 +16,11 @@ if (!is_user_logged_in()) {
         'label_remember'    => __( 'Remember Me', THEME ),
         'label_log_in'      => __( 'Log In', THEME ),
     ));
+    echo '</div>';
+
+    echo '<div class="registration_form half_page">';
+    echo '<h3>'.__( 'Registration', THEME ).'</h3>';
+    $frontend->custom_registration_function();
     echo '</div>';
 }
 get_footer();

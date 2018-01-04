@@ -6,7 +6,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     private $countEventsForAd = 24;
     public function __construct()
    {
-        parent::__construct();
+        parent::__construct();  
         wp_enqueue_script( THEME . '_script', get_template_directory_uri() . '/assets/scripts/scripts.js', array( 'jquery' ), '20160816', true );
         wp_enqueue_style( 'main_styles', get_template_directory_uri() . '/style.css', array(), '1.0.0' );
 

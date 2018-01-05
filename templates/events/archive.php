@@ -46,7 +46,8 @@ if ( isset( $_GET[ __( 'ages', THEME ) ] ) ) {
 
 if ( count( $query->posts ) != 0 ) :
     echo '<div class="events-cards-wrapper">';
-    echo '<div id="g-map" style="width: 500px; height: 500px;"></div>';
+    echo '<div id="filters">filters</div>';
+    echo '<div id="g-map"></div>';
     $i = 0;
     foreach ($query->posts as $event) :
         $i++;

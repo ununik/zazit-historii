@@ -10,31 +10,31 @@ $(document).ready(function(){
 
 const $mapEl = $('#g-map')
 
-var markerIcon = {
-    url: 'http://violinorum.staging-development.com/wp-content/plugins/hd_violinorum/assets/images/violinorum_map-marker.svg',
-    scaledSize: new google.maps.Size(32, 32),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(32,65),
-    labelOrigin:  new google.maps.Point(16,-6),
-    labelClass: "labels"
-};
-
+var home_path = '';
 function initAutocomplete(response) {
     if (typeof google === 'undefined') return
+    home_path = response.home_path;
+    
+    var markerIcon = {
+      url: home_path+'/assets/images/icons/map_sword.svg',
+      scaledSize: new google.maps.Size(32, 32),
+      origin: new google.maps.Point(0, 0),
+      //anchor: new google.maps.Point(0,0),
+      labelOrigin:  new google.maps.Point(16,-6),
+      labelClass: "labels"
+    };
+
     const map = new google.maps.Map($mapEl[0])
-
-    google.maps.event.addListener(map, 'click', function() {
-        infowindow.close();
-    });
-
 
     // LIST
     const bounds = new google.maps.LatLngBounds()
-    const markers = response.map(function (item, i) {
+    const markers = response.response.map(function (item, i) { 
         const location = item.location
         if (location.lat && location.lng) {
-            var contentString = '<div id="content" class="map">test'+
-                '</div>';
+            var contentString = '<div id="map_content" class="map_text">'+
+            '<h3>'+item.name+'</h3>'+
+            '<div>'+item.date+'</div>'+
+            '</div>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -43,8 +43,9 @@ function initAutocomplete(response) {
                 position: location,
                 title: item.name,
                 icon: markerIcon,
+                map: map,
                 label: {
-                    text: item.value,
+                    text: item.name,
                     color: 'black',
                     fontSize: '12px',
                     fontWeight: 'bold',
@@ -57,8 +58,11 @@ function initAutocomplete(response) {
             bounds.extend(marker.position)
             return marker
         }
-    })
-
+    })  
+    /*google.maps.event.addListener(map, 'click', function() {
+        infowindow.close();
+    }); */
+    
     try {
         // This is needed to set the zoom after fitbounds,
         google.maps.event.addListener(map, 'zoom_changed', function () {
@@ -75,12 +79,8 @@ function initAutocomplete(response) {
         map.initialZoom = true
         // now fit the map to the newly inclusive bounds
         map.fitBounds(bounds)
-        new MarkerClusterer(map, markers, {
-            textColor: 'white',
-            imagePath: 'http://violinorum.staging-development.com/wp-content/plugins/hd_violinorum/assets/images/violinorum_map-marker_large'
-        })
     } catch (e) {
-        $mapEl.animate({opacity: 0, height: 0}, 500)
+        //$mapEl.animate({opacity: 0, height: 0}, 500)
         console.warn(e)
-    }
+    }          
 }

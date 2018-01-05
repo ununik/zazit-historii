@@ -422,21 +422,22 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
         $return = [];
         foreach ($events->posts as $event) {
-            $lat = get_post_meta( $event->ID, '_event_place_lat', true );
-            $lng = get_post_meta( $event->ID, '_event_place_lng', true );
+            $lat = (float) get_post_meta( $event->ID, '_event_place_lat', true );
+            $lng = (float) get_post_meta( $event->ID, '_event_place_lng', true );
 
             $data = [];
             if ($lat && $lng && (float) $lat != 0 && (float) $lng != 0 ) {
                 $data['location']['lat'] = $lat;
                 $data['location']['lng'] = $lng;
                 $data['name'] = get_the_title($event->ID);
+                $data['date'] = $this->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
 
                 $return[] = $data;
             }
         }
 
         header('Content-type: application/json');
-        echo json_encode(['response' => $return]);
+        echo json_encode(['response' => $return, 'home_path' => get_template_directory_uri()]);
         die();
     }
 }

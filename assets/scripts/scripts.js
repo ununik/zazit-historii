@@ -1,11 +1,35 @@
 $ = jQuery;
 $(document).ready(function(){
     //OPEN MENU
+    $('.events_wrapper').css('height', $('.events_wrapper').css('width') );
     $('#menu_toggle').click(function(){
         $(this).toggleClass('open');
         $('.main-menu-list').toggleClass('open-menu');
         $('#navigation-panel').toggleClass('open-panel');
     });
+    $('.current_user').click(function(){
+        $('.user_menu').toggle();
+    });
+    $('.remove').click(function( event ){
+        var message = $(this).data('remove');
+        if (confirm(message)) {
+            // Save it!
+        } else {
+            event.preventDefault()
+        }
+    });
+
+    window.addEventListener( "afu_file_removed", function(e){
+        $("#event_image").val( '' );
+        $("#image_from").attr('src', '');
+    }, false);
+
+    window.addEventListener( "afu_file_uploaded", function(e){
+        if( "undefined" !== typeof e.data.response.media_uri ) {
+            $("#event_image").val( e.data.response.media_uri );
+            $("#image_from").attr('src', e.data.response.media_uri);
+        }
+    }, false);
 });
 
 const $mapEl = $('#g-map')
@@ -32,8 +56,13 @@ function initAutocomplete(response) {
         const location = item.location
         if (location.lat && location.lng) {
             var contentString = '<div id="map_content" class="map_text">'+
-            '<h3>'+item.name+'</h3>'+
-            '<div>'+item.date+'</div>'+
+            '<a href="'+item.link+'" target="_blank">' + 
+            '<h3>'+item.name+'</h3>';
+             if (item.city != '') {
+                contentString += '<div class="map_city">'+item.city+'</div>'
+             }
+            contentString += '<div class="map_date">'+item.date+'</div>'+
+            '</a>'+
             '</div>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
@@ -62,6 +91,48 @@ function initAutocomplete(response) {
     /*google.maps.event.addListener(map, 'click', function() {
         infowindow.close();
     }); */
+    
+    var clusterStyles = [
+      {
+        textColor: 'black',
+        url: home_path+'/assets/images/icons/map_sword_cluster1.svg',
+        height: 50,
+        width: 50
+      },
+     {
+        textColor: 'black',
+        url: home_path+'/assets/images/icons/map_sword_cluster2.svg',
+        height: 50,
+        width: 50
+      },
+     {
+        textColor: 'white',
+        url: home_path+'/assets/images/icons/map_sword_cluster3.svg',
+        height: 60,
+        width: 60
+      },
+      {
+        textColor: 'white',
+        url: home_path+'/assets/images/icons/map_sword_cluster4.svg',
+        height: 60,
+        width: 60
+      },
+      {
+        textColor: 'white',
+        url: home_path+'/assets/images/icons/map_sword_cluster5.svg',
+        height: 60,
+        width: 60
+      }
+    ];
+    
+    var mcOptions = {
+    gridSize: 60,
+    styles: clusterStyles,
+    maxZoom: 15
+};
+
+     var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
     
     try {
         // This is needed to set the zoom after fitbounds,

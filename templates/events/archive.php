@@ -46,7 +46,7 @@ if ( isset( $_GET[ __( 'ages', THEME ) ] ) ) {
 
 if ( count( $query->posts ) != 0 ) :
     echo '<div class="events-cards-wrapper">';
-    echo '<div id="filters">filters</div>';
+    //echo '<div id="filters">filters</div>';
     echo '<div id="g-map"></div>';
     $i = 0;
     foreach ($query->posts as $event) :
@@ -130,5 +130,13 @@ get_footer();
     $ = jQuery;
     $.post('<?php echo get_home_url(); ?>/wp-admin/admin-ajax.php', {
         action: 'map_data',
+        <?php
+        if ( isset( $_GET[ __( 'ages', THEME ) ] ) ) {
+            echo "ages: '{$_GET[ __( 'ages', THEME ) ]}'";
+        }
+        if ( isset( $_GET[ __( 'search', THEME ) ] ) ) {
+            echo "search: '{$_GET[ __( 'search', THEME ) ]}'";
+        }
+        ?>
     }).then(initAutocomplete)
 </script>

@@ -33,7 +33,6 @@ body{
 #main-header{
     position: relative;
     width: 100%;
-    background-color: black;
     padding: 0px 0px 10px 0px;
 }
 .site-title{
@@ -255,12 +254,12 @@ body{
     box-shadow: 1px 1px 5px gray;
     height: 27px;
     position: absolute;
-    top: 30px;
+    top: 0px;
     right: 20px;
     width: 100%;
     max-width: 400px;
     border-radius: 7px;
-    margin: 20px 10px 10px 0px;
+    margin: 6px 10px 0px 0px;
     background-color: white;
 }
 .search-form input{
@@ -275,7 +274,8 @@ body{
 .search-form-input{
     width: 100%;
     padding: 3px 30px 3px 8px;
-    font-size: 15px;
+    font-size: 14px;
+    position: absolute;
 }
 .search-form-button{
     width: 27px;
@@ -299,7 +299,12 @@ body{
     color: white;
     line-height: 40px;
     display: inline-block;
-    margin-right: 25px;
+    padding-right: 25px;
+    height: 40px;
+    background-color: gray;
+    cursor: pointer;
+    width: 400px;
+    box-sizing: border-box;
 }
 .current_user img{
     width: 34px;
@@ -309,14 +314,19 @@ body{
     margin-top: 3px;
     margin-left: 45px;
 }
+.current_user span{
+    position: relative;
+    top: -10px;
+}
 .user_panel{
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 0px;
     width: 100%;
     left: 0px;
     background-color: silver;
     height: 40px;
     line-height: 40px;
+    z-index: 150;
 }
 .user_panel a{
     color: white;
@@ -326,6 +336,12 @@ body{
     display: block;
 }
 .half_page input[type=text]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px 6px;
+    margin: 5px 0px 15px 0px;
+}
+.half_page input[type=email]{
     width: 100%;
     box-sizing: border-box;
     padding: 3px 6px;
@@ -352,6 +368,64 @@ body{
   background-color: white;
   border-radius: 4px;
   padding: 5px;
+}
+.gm-style-iw a{
+  color: black;
+  text-decoration: none;
+}
+.gm-style-iw h3{
+  margin: 5px 0px;
+}
+.gm-style-iw .map_city{
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+.gm-style-iw .map_date{
+  font-size: 12px;
+  font-weight: bold;
+}
+.user_menu{
+  display: none;
+  background-color: gray;
+  padding: 5px;
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  z-index: 100;
+  line-height: 30px;
+  font-size: 14px;
+    width: 400px;
+    box-sizing: border-box;
+}
+.user_menu a{
+  display: block;
+  padding: 2px 20px 2px 30px;
+  margin-left: 59px;
+}
+.ui-datepicker-next{
+    background-image: url('assets/images/icons/sword_e.svg');
+    cursor: pointer;
+}
+.ui-datepicker-prev{
+    background-image: url('assets/images/icons/sword_w.svg');
+    cursor: pointer;
+}
+.ui-datepicker-next:hover{
+    background-image: url('assets/images/icons/sword_e_hover.svg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.ui-datepicker-prev:hover{
+    background-image: url('assets/images/icons/sword_w_hover.svg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.full_page{
+    width: 100%;
+    clear: both;
+}
+#ui-datepicker-div{
+    display: none;
 }
 
 @media only screen and (min-width: 600px) {
@@ -415,8 +489,9 @@ body{
         text-decoration: none;
     }
     .events_wrapper {
-        width: 35vW;
-        height: 35vW;
+        /*width: 35vW;
+        height: 35vW;*/
+        width: 30%;
     }
     .half_page{
         width: 50%;
@@ -429,7 +504,7 @@ body{
     .half_page:nth-child(odd){
         padding-right: 20px;
     }
-    #filters{
+    /*#filters{
       width: 34%;
       float: left;
       box-sizing: border-box;
@@ -440,11 +515,38 @@ body{
       width: 66%;
       height: 450px;
       box-sizing: border-box;
+    }*/
+    #g-map{
+        float: left;
+        width: 100%;
+        height: 450px;
+        box-sizing: border-box;
     }
 }
 @media only screen and (min-width: 500px) {
     .events_wrapper {
-        width: 220px;
+        width: 90%;
+        height: 220px;
+    }
+}
+@media only screen and (min-width: 650px) {
+    .events_wrapper {
+        width: 45%;
+        height: 220px;
+    }
+    .search-form{
+        max-width: 250px;
+    }
+}
+@media only screen and (min-width: 850px) {
+    .events_wrapper {
+        width: 30%;
+        height: 220px;
+    }
+}
+@media only screen and (min-width: 1150px) {
+    .events_wrapper {
+        width: 22.5%;
         height: 220px;
     }
 }

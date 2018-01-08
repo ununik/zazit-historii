@@ -36,6 +36,10 @@ class ZazitHistoriiBackend extends ZazitHistorii
         /* Save post actions */
         add_action( 'save_post', array( $this, 'save_events_hook' ) );
         /* END Save post actions */
+
+        add_action('save_post', array( $this, 'set_parents_terms' ), 10, 2); // automatically select parent terms
+
+        add_action('admin_init', array( $this, 'no_mo_dashboard' ) );
     }
 
     public function register_events_cpt()
@@ -73,7 +77,7 @@ class ZazitHistoriiBackend extends ZazitHistorii
                 'has_archive'        => true,
                 'hierarchical'       => false,
                 'menu_position'      => 1,
-                'supports'           => [ 'title', 'thumbnail' ],
+                'supports'           => [ 'title', 'thumbnail', 'author' ],
             ]
         );
 
@@ -90,6 +94,11 @@ class ZazitHistoriiBackend extends ZazitHistorii
                                 'id'     => '_data_tabs_panel_1',
                                 'title'  => __( 'Basic informations', THEME ),
                                 'fields' => [
+                                    [
+                                        'id'    => '_event_only_for_registrated_users',
+                                        'type'  => 'checkbox',
+                                        'label' => __( 'Visible only for registrated users', THEME ),
+                                    ],
                                     [
                                         'id'    => '_event_date_from',
                                         'type'  => 'datetime',
@@ -146,6 +155,17 @@ class ZazitHistoriiBackend extends ZazitHistorii
                                         'id'    => '_event_link',
                                         'type'  => 'text',
                                         'label' => __( 'Link URL', THEME ),
+                                    ],
+                                ]
+                            ],
+                            [
+                                'id'     => '_data_tabs_panel_3',
+                                'title'  => __( 'Description', THEME ),
+                                'fields' => [
+                                    [
+                                        'id'    => '_event_description',
+                                        'type'  => 'wysiwyg',
+                                        'label' => __( 'Description', THEME ),
                                     ],
                                 ]
                             ],
@@ -278,6 +298,25 @@ class ZazitHistoriiBackend extends ZazitHistorii
                     ]
                 );
             }
+        }
+    }
+
+    public function set_parents_terms( $post_id, $post )
+    {
+        $taxonomies = get_taxonomies(array('_builtin' => false));
+        foreach ($taxonomies as $taxonomy ) {
+            $terms = wp_get_object_terms($post->ID, $taxonomy);
+            foreach ($terms as $term) {
+                $parenttags = get_ancestors($term->term_id,$taxonomy);
+                wp_set_object_terms( $post->ID, $parenttags, $taxonomy, true );
+            }
+        }
+    }
+
+    public function no_mo_dashboard()
+    {
+        if (!current_user_can('manage_options') && $_SERVER['DOING_AJAX'] != '/wp-admin/admin-ajax.php' && substr($_SERVER['REQUEST_URI'], -14) != 'admin-ajax.php') {
+            wp_redirect(home_url()); exit;
         }
     }
 }

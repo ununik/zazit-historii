@@ -9,10 +9,18 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     public function __construct()
     {
         parent::__construct();
+        wp_enqueue_media();
         wp_enqueue_script(THEME . '_script', get_template_directory_uri() . '/assets/scripts/scripts.js', array('jquery'), '20160816', true);
-        wp_enqueue_script(THEME . '_maps', 'http://maps.google.com/maps/api/js?sensor=false&libraries=places&key='.$this->googleMapKey, array('jquery'), '20160816', false);//api key = AIzaSyCYT9mAEwA8nisjkytdVrX8K0JXJGjf9yQ
+        wp_enqueue_script(THEME . '_maps', 'http://maps.google.com/maps/api/js?sensor=false&libraries=places&key='.$this->googleMapKey, array('jquery'), '20160816', false);
+        wp_enqueue_script(THEME . '_maps_cluster', get_template_directory_uri() . '/assets/scripts/markerclusterer.js', array('jquery'), '20160816', false);
+        wp_enqueue_script('jquery-ui-datepicker');
+
+        wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+
         wp_enqueue_script(THEME . '_maps_picker', get_template_directory_uri() . '/assets/scripts/jquery-locationpicker-plugin/src/locationpicker.jquery.js', array('jquery'), '20160816', false);
         wp_enqueue_style('main_styles', get_template_directory_uri() . '/style.css', array(), '1.0.0');
+
+
 
         /* Import templates */
         add_filter('single_template', array($this, 'import_single_template'));
@@ -56,13 +64,29 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         $args['order'] = 'ASC';
         $args['orderby'] = 'meta_value_num';
         $args['meta_key'] = '_event_date_from';
-        $meta_query = [
-            [
-                'key' => '_event_date_to',
-                'value' => $date1,
-                'compare' => '>'
-            ]
-        ];
+        if (get_current_user_id() == 0) {
+            $meta_query = [
+                [
+                    'key' => '_event_date_to',
+                    'value' => $date1 - 1,
+                    'compare' => '>'
+                ],
+                [
+                    'key' => '_event_only_for_registrated_users',
+                    'value' => 'on',
+                    'compare' => '!='
+                ]
+
+            ];
+        } else {
+            $meta_query = [
+                [
+                    'key' => '_event_date_to',
+                    'value' => $date1 - 1,
+                    'compare' => '>'
+                ]
+            ];
+        }
         $args['meta_query'] = $meta_query;
 
         if (count($ages) > 0) {
@@ -147,6 +171,32 @@ class ZazitHistoriiFrontend extends ZazitHistorii
             $return .= $term['data']->name;
             $return .= '</a>';
             $return .= $this->show_navigation_from_terms($term['children'], $current_item_slug);
+            $return .= '</li>';
+        }
+        $return .= '</ul>';
+
+        return $return;
+    }
+
+    public function show_checkboxes_from_terms($terms, $current_items_slug = array() )
+    {
+        $return = '<ul class="term-navigation">';
+        foreach ($terms as $term) {
+            $checked = false;
+            foreach ($current_items_slug as $current_item_slug) {
+                if ($current_item_slug == $term['data']->term_id) {
+                    $checked = true;
+                    break;
+                }
+            }
+            $return .= '<li>';
+            if ($checked) {
+                $return .= '<input type="checkbox" name="ages[]" value="' . $term['data']->slug . '" checked>';
+            } else {
+                $return .= '<input type="checkbox" name="ages[]" value="' . $term['data']->slug . '">';
+            }
+            $return .= $term['data']->name;
+            $return .= $this->show_checkboxes_from_terms($term['children'], $current_items_slug);
             $return .= '</li>';
         }
         $return .= '</ul>';
@@ -357,12 +407,21 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     public function get_user_name($user_id)
     {
         $user = get_user_by('id', $user_id);
+        $nickname = get_user_meta( $user_id, 'nickname', true );
 
         if ($user->user_firstname == '' && $user->user_lastname == '') {
-            return $user->user_login;
+            if ($nickname == '') {
+                return $user->user_login;
+            } else {
+                return $nickname;
+            }
         }
 
-        return $user->user_firstname . ' ' . $user->user_lastname;
+        if ($nickname == '') {
+            return $user->user_firstname . ' ' . $user->user_lastname;
+        } else {
+            return $user->user_firstname . ' ' . $user->user_lastname .' ('.$nickname.')';
+        }
     }
 
     public function parse_request($query)
@@ -391,6 +450,18 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 return $wp_query;
             }
         }
+
+        // EVENT AGES
+        $matches = null;
+        preg_match('/profil\/(.*)\//', $_SERVER["REQUEST_URI"], $matches, PREG_OFFSET_CAPTURE);
+
+        if ((isset($matches[1][0]) && $matches[1][0] != '') && !isset($_GET['custom'])) {
+            $_GET['custom'] = true;
+            $_GET['user_nickname'] = $matches[1][0];
+            //$_SERVER["REQUEST_URI"] = substr($_SERVER["REQUEST_URI"], 0, strlen($_SERVER["REQUEST_URI"]) - strlen($matches[0][0])).'/profil/';
+            include __DIR__.'/../page-profil.php';
+            exit();
+        }
     }
 
     public function custom_front_page($query)
@@ -416,9 +487,32 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
     public function map_data()
     {
-        $events = $this->get_all_events_from_date_to_date(
-            strtotime('today', current_time('timestamp'))
-        );
+        if (isset($_REQUEST[ __( 'ages', THEME ) ])) {
+            $events = $this->get_all_events_from_date_to_date(
+                strtotime('today', current_time('timestamp')),
+                0,
+                $_REQUEST[ __( 'ages', THEME ) ]
+            );
+        } else if($_REQUEST[ __( 'search', THEME ) ]) {
+            $events = $this->get_all_events_from_date_to_date(
+                strtotime('today', current_time('timestamp')),
+                0,
+                [],
+                $_REQUEST[ __( 'search', THEME ) ]
+            );
+        } else if($_REQUEST['id']) {
+            $events = new WP_Query(
+                array(
+                    'post_type' => '_events',
+                    'p' => $_REQUEST['id']
+                )
+            );
+        } else {
+            $events = $this->get_all_events_from_date_to_date(
+                strtotime('today', current_time('timestamp'))
+            );
+        }
+
 
         $return = [];
         foreach ($events->posts as $event) {
@@ -430,6 +524,8 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 $data['location']['lat'] = $lat;
                 $data['location']['lng'] = $lng;
                 $data['name'] = get_the_title($event->ID);
+                $data['link'] = get_the_permalink($event->ID);
+                $data['city'] =  get_post_meta( $event->ID, '_event_city', true );
                 $data['date'] = $this->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
 
                 $return[] = $data;
@@ -439,6 +535,20 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         header('Content-type: application/json');
         echo json_encode(['response' => $return, 'home_path' => get_template_directory_uri()]);
         die();
+    }
+
+    public function getAllEventsForUser( $user_id )
+    {
+        $args['post_type'] = '_events';
+        $args['posts_per_page'] = -1;
+        $args['author'] = $user_id;
+        $args['order'] = 'DESC';
+        $args['orderby'] = 'meta_value_num';
+        $args['meta_key'] = '_event_date_from';
+
+        $query = new WP_Query($args);
+
+        return $query;
     }
 }
 $frontend = new ZazitHistoriiFrontend();

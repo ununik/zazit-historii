@@ -29,38 +29,46 @@ global $frontend;
             <?php if ( has_nav_menu( 'main-menu' ) ) : ?>
                 <div class="main-menu">
                     <div id="menu_toggle"><span></span><span></span><span></span></div>
+                    <div class="user_panel">
+                        <?php
+                        if (!is_user_logged_in()) {
+                            ?>
+                            <div class="current_user">
+                                <a href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login / register', THEME); ?>"><?php echo __('Login', THEME); ?></a>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>">
+                                <span><?php echo $frontend->get_user_name( get_current_user_id() ); ?></span>
+                            </div>
+                            <div class="user_menu">
+                                <a class="show_on_hover_profil" href="<?php echo get_home_url().'/profil/'; ?>" title="<?php echo __('Profil', THEME); ?>"><?php echo __('Profil', THEME); ?></a>
+                                <a class="show_on_hover_profil" href="<?php echo get_home_url().'/new-event/'; ?>" title="<?php echo __('Add new event', THEME); ?>"><?php echo __('Add new event', THEME); ?></a>
+                                <a class="show_on_hover_profil" href="<?php echo wp_logout_url( get_home_url() ); ?>" title="<?php echo __('Logout', THEME); ?>"><?php echo __('Logout', THEME); ?></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <form action="<?php echo get_post_type_archive_link( '_events' ) ?>" method="get">
+                            <div class="search-form">
+                                <input type="text" class="search-form-input" placeholder="<?php echo __( 'Search events...', THEME ) ?>" name="<?php echo __( 'search', THEME ) ?>">
+                                <input type="submit" class="search-form-button" value="">
+                            </div>
+                        </form>
+                    </div>
                     <?php
-                    wp_nav_menu( array(
+                    /*wp_nav_menu( array(
                         'theme_location' => 'main-menu',
                         'menu_class'     => 'main-menu-list',
-                    ) );
+                    ) );*/
                     ?>
                 </div>
             <?php endif; ?>
-            <form action="<?php echo get_post_type_archive_link( '_events' ) ?>" method="get">
-                <div class="search-form">
-                    <input type="text" class="search-form-input" placeholder="<?php echo __( 'Search events...', THEME ) ?>" name="<?php echo __( 'search', THEME ) ?>">
-                    <input type="submit" class="search-form-button" value="">
-                </div>
-            </form>
-            <div class="user_panel">
-                <?php
-                if (!is_user_logged_in()) {
-                    ?>
-                    <a href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login', THEME); ?>"><?php echo __('Login', THEME); ?></a>
-                    <?php
-                } else {
-                    ?>
-                    <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>"><?php echo $frontend->get_user_name( get_current_user_id() ); ?></div>
-                    <a class="show_on_hover_profil" href="<?php echo get_home_url().'/'.__('new-event', THEME).'/'; ?>" title="<?php echo __('Add new event', THEME); ?>"><?php echo __('Add new event', THEME); ?></a>
-                    <a class="show_on_hover_profil" href="<?php echo wp_logout_url( get_home_url() ); ?>" title="<?php echo __('Logout', THEME); ?>"><?php echo __('Logout', THEME); ?></a>
-                    <?php
-                }
-                ?>
-            </div>
         </header>
         <div id="main-part">
             <div id="navigation-panel">
+                <h4><?php echo __('Ages', THEME); ?></h4>
                 <?php
                 $ages = $frontend->get_all_ages_list();
                 $current_age = '';

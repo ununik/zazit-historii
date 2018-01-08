@@ -17,6 +17,7 @@ class ZazitHistorii
 
         /* Register taxonomies */
         add_action( 'init', array( $this, 'register_ages_taxonomy' ) );
+        add_action( 'init', array( $this, 'register_themes_taxonomy' ) );
         /* END Register taxonomies */
     }
 
@@ -29,5 +30,16 @@ class ZazitHistorii
         ];
 
         register_cuztom_taxonomy( '_ages', '_events', $args );
+    }
+
+    public function register_themes_taxonomy()
+    {$args = [
+        'label' => __( 'Themes', THEME ),
+        'rewrite' => array( 'slug' => __( 'themes', THEME ) ),
+        'hierarchical' => true,
+    ];
+
+        register_cuztom_taxonomy( '_themes', '_events', $args );
+
     }
 }

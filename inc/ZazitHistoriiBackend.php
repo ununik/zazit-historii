@@ -40,6 +40,9 @@ class ZazitHistoriiBackend extends ZazitHistorii
         add_action('save_post', array( $this, 'set_parents_terms' ), 10, 2); // automatically select parent terms
 
         add_action('admin_init', array( $this, 'no_mo_dashboard' ) );
+
+        // this will remove the stylesheet when init fires
+        add_action('admin_init', array( $this, 'remove_default_stylesheets' ) );
     }
 
     public function register_events_cpt()
@@ -323,6 +326,10 @@ class ZazitHistoriiBackend extends ZazitHistorii
         if (!current_user_can('manage_options') && $_SERVER['DOING_AJAX'] != '/wp-admin/admin-ajax.php' && substr($_SERVER['REQUEST_URI'], -14) != 'admin-ajax.php') {
             wp_redirect(home_url()); exit;
         }
+    }
+
+    public function remove_default_stylesheets() {
+        wp_deregister_style('main_styles');
     }
 }
 

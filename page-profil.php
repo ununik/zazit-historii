@@ -30,7 +30,7 @@ global $frontend;
 ?>
 <h3>Profil - <?php echo $frontend->get_user_name( $user_id ); ?></h3>
 <?php if ($current_user_logged) : ?>
-    <a href="<?php echo get_home_url().'/edit-profil/'; ?>"><?php echo __('Edit profil', THEME)?></a>
+    <a class="edit" href="<?php echo get_home_url().'/edit-profil/'; ?>" title="<?php echo __('Edit profil', THEME)?>"><?php echo __('Edit profil', THEME)?></a>
 <?php endif; ?>
 
 <div>

@@ -262,7 +262,7 @@ body{
     right: 20px;
     width: 100%;
     max-width: 400px;
-    border-radius: 7px;
+    border-radius: 4px;
     margin: 6px 10px 0px 0px;
     background-color: white;
 }
@@ -282,9 +282,9 @@ body{
     position: absolute;
 }
 .search-form-button{
-    width: 27px;
+    width: 23px;
     position: absolute;
-    right: 0px;
+    right: 2px;
     top: 0px;
     background-image: url(assets/images/icons/search.svg) !important;
     border-radius: 0px 7px 7px 0px;
@@ -384,6 +384,12 @@ body{
     width: 100%;
     height: 400px;
 }
+#map_picker *{
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
+}
 .gm-style-iw{
   background-color: white;
   border-radius: 4px;
@@ -449,6 +455,27 @@ body{
 }
 #ui-datepicker-div{
     display: none;
+}
+.remove{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(assets/images/icons/remove.svg)
+}
+.edit{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(assets/images/icons/edit.svg)
+}
+ol li{
+    margin: 10px 5px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -516,6 +543,10 @@ body{
         /*width: 35vW;
         height: 35vW;*/
         width: 30%;
+        -webkit-transition-duration: 0s;
+        -moz-transition-duration: 0s;
+        -o-transition-duration: 0s;
+        transition-duration: 0s;
     }
     .half_page{
         width: 50%;
@@ -528,24 +559,22 @@ body{
     .half_page:nth-child(odd){
         padding-right: 20px;
     }
-    /*#filters{
-      width: 34%;
-      float: left;
-      box-sizing: border-box;
-      text-align: left;
-    }
-    #g-map{
-      float: left;
-      width: 66%;
-      height: 450px;
-      box-sizing: border-box;
-    }*/
     #g-map{
         float: left;
         width: 100%;
         /*height: 450px;*/
         height: 0px;
         box-sizing: border-box;
+        -webkit-transition-duration: 0s;
+        -moz-transition-duration: 0s;
+        -o-transition-duration: 0s;
+        transition-duration: 0s;
+    }
+    #g-map *{
+        -webkit-transition-duration: 0s;
+        -moz-transition-duration: 0s;
+        -o-transition-duration: 0s;
+        transition-duration: 0s;
     }
 }
 @media only screen and (min-width: 500px) {

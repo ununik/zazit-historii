@@ -139,6 +139,7 @@ if (isset($_POST['event_save'])) {
         endif;
 
         wp_set_post_terms($pid, $ages_terms, '_ages', false);
+        wp_set_post_terms($pid, $themes_terms, '_themes', false);
 
         if ( ! add_post_meta( $pid, '_event_date_from', $from, true) ) {
             update_post_meta ( $pid, '_event_date_from', $from );
@@ -181,11 +182,7 @@ if (isset($_POST['event_save'])) {
 
         wp_update_post($update_post);
 
-        if ($new_event) {
-            header("Location:" . add_query_arg('saved', $pid, home_url($wp->request)));
-        } else {
-            header("Location:" . add_query_arg( array('saved'=>$pid,'event' => get_post_field('post_name', $pid)), home_url($wp->request)));
-        }
+        header("Location:" . get_the_permalink( $pid ));
         exit();
     }
 }
@@ -238,7 +235,7 @@ if ( count($error) > 0 ) {
             <p>
             <label><?php echo __( 'Ages', THEME ); ?> *<span>(<?php echo __( 'At least one', THEME ); ?>)</span></label>
             <?php
-            $ages = $frontend->get_all_ages_list();
+            $ages = $frontend->get_all_ages_list( false );
             /*if (isset($_GET['ages'])) {
                 $current_age = $_GET['ages'];
             }*/

@@ -10,7 +10,13 @@
  */
 
 get_header();
-
+global $frontend;
 echo '<h3>'.get_the_title().'</h3>';
 
+if ( have_posts() ) :
+    while ( have_posts() ) : the_post();
+        echo '<div>'.get_the_content().'</div>';
+        echo $frontend->show_ad();
+    endwhile;
+endif;
 get_footer();

@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zazit_historii2\n"
+"POT-Creation-Date: 2018-01-11 15:35+0100\n"
+"PO-Revision-Date: 2018-01-11 15:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: header.php:37
+msgid "Login / Registration"
+msgstr ""
+
+#: header.php:46 templates/events/single.php:41
+msgid "Profil"
+msgstr ""
+
+#: header.php:47 inc/ZazitHistoriiBackend.php:58
+msgid "Add new event"
+msgstr ""
+
+#: header.php:49
+msgid "Logout"
+msgstr ""
+
+#: header.php:56
+msgid "Search events..."
+msgstr ""
+
+#: header.php:56 inc/ZazitHistoriiFrontend.php:528
+#: inc/ZazitHistoriiFrontend.php:533 templates/events/archive.php:16
+#: templates/events/archive.php:21 templates/events/archive.php:28
+#: templates/events/archive.php:31 templates/events/archive.php:137
+msgid "search"
+msgstr ""
+
+#: header.php:74 inc/ZazitHistorii.php:27 templates/events/edit.php:240
+msgid "Ages"
+msgstr ""
+
+#: inc/ZazitHistorii.php:14
+msgid "Main Menu"
+msgstr ""
+
+#: inc/ZazitHistorii.php:28 inc/ZazitHistoriiFrontend.php:522
+#: inc/ZazitHistoriiFrontend.php:526 templates/events/archive.php:35
+#: templates/events/archive.php:36 templates/events/archive.php:134
+msgid "ages"
+msgstr ""
+
+#: inc/ZazitHistorii.php:37 templates/events/edit.php:251
+msgid "Themes"
+msgstr ""
+
+#: inc/ZazitHistorii.php:38
+msgid "themes"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:54 inc/ZazitHistoriiBackend.php:56
+msgid "Events"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:55
+msgid "Event"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:57 inc/ZazitHistoriiBackend.php:191
+msgid "Add new"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:59 page-new-event.php:11
+msgid "New event"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:60
+msgid "Edit event"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:61
+msgid "View event"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:62
+msgid "All events"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:63
+msgid "Search for event"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:64 templates/events/archive.php:122
+msgid "No event found"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:65
+msgid "No event found in the trash"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:66
+msgid "Event image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:67
+msgid "Set event image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:68
+msgid "Remove event image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:69
+msgid "Use event image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:77 inc/ZazitHistoriiFrontend.php:465
+msgid "events"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:90 inc/ZazitHistoriiBackend.php:220
+msgid "Detail"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:98 inc/ZazitHistoriiBackend.php:228
+msgid "Basic informations"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:103
+msgid "Visible only for registrated users"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:108
+msgid "Date from"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:116
+msgid "Date to"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:124
+msgid "Place"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:129 templates/events/edit.php:222
+msgid "City"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:134
+msgid "Lat"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:139
+msgid "Lng"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:145
+msgid "Contact"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:150 inc/ZazitHistoriiFrontend.php:296
+#: page-edit-profil.php:47
+msgid "Email"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:155
+msgid "Phone"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:160
+msgid "Link URL"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:166 inc/ZazitHistoriiBackend.php:171
+#: templates/events/edit.php:273
+msgid "Description"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:188 inc/ZazitHistoriiBackend.php:190
+msgid "Ads"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:189
+msgid "Ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:192
+msgid "Add new ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:193
+msgid "New ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:194
+msgid "Edit ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:195
+msgid "View ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:196
+msgid "All ads"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:197
+msgid "Search for ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:198
+msgid "No ad found"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:199
+msgid "No ad found in the trash"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:207
+msgid "ads"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:233
+msgid "Link"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:238
+msgid "Views"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:243
+msgid "Clicks"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:261
+msgid "Default image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:266
+msgid "Short name"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:267
+msgid "This short name appears in the cards image."
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:272
+msgid "Year of beginning"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:277
+msgid "Text color"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:282
+msgid "Background color"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:291
+msgid "Username"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:301 page-login.php:15
+msgid "Password"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:308
+#, php-format
+msgid "Do you agree with our <a href=\"%s\" target=\"_blank\">rules</a>?"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:395
+msgid "Required form field is missing"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:399
+msgid "Username too short. At least 4 characters is required"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:403
+msgid "Sorry, that username already exists!"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:407
+msgid "Sorry, the username you entered is not valid"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:411
+msgid "Password length must be greater than 5"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:415
+msgid "Email is not valid"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:419 inc/ZazitHistoriiFrontend.php:423
+msgid "Email Already in use"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:426
+msgid "You must agree with our rules"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:45
+#: library/cuztom/Entities/PostType.php:52
+#: library/cuztom/Entities/Taxonomy.php:82
+#: library/cuztom/Entities/Taxonomy.php:100
+#: library/cuztom/src/Entities/PostType.php:45
+#: library/cuztom/src/Entities/PostType.php:52
+#: library/cuztom/src/Entities/Taxonomy.php:82
+#: library/cuztom/src/Entities/Taxonomy.php:100
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:53
+#: library/cuztom/Entities/Taxonomy.php:93
+#: library/cuztom/src/Entities/PostType.php:53
+#: library/cuztom/src/Entities/Taxonomy.php:93
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:55
+#: library/cuztom/Entities/Taxonomy.php:98
+#: library/cuztom/src/Entities/PostType.php:55
+#: library/cuztom/src/Entities/Taxonomy.php:98
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:56
+#: library/cuztom/Entities/Taxonomy.php:96
+#: library/cuztom/src/Entities/PostType.php:56
+#: library/cuztom/src/Entities/Taxonomy.php:96
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:57
+#: library/cuztom/src/Entities/PostType.php:57
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:58
+#: library/cuztom/src/Entities/PostType.php:58
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:59
+#: library/cuztom/src/Entities/PostType.php:59
+#, php-format
+msgid "%s Archive"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:60
+#: library/cuztom/Entities/Taxonomy.php:92
+#: library/cuztom/src/Entities/PostType.php:60
+#: library/cuztom/src/Entities/Taxonomy.php:92
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:61
+#: library/cuztom/src/Entities/PostType.php:61
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:62
+#: library/cuztom/src/Entities/PostType.php:62
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: library/cuztom/Entities/PostType.php:63
+#: library/cuztom/src/Entities/PostType.php:63
+#, php-format
+msgid "%s Parent"
+msgstr ""
+
+#: library/cuztom/Entities/Taxonomy.php:94
+#: library/cuztom/src/Entities/Taxonomy.php:94
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: library/cuztom/Entities/Taxonomy.php:95
+#: library/cuztom/src/Entities/Taxonomy.php:95
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: library/cuztom/Entities/Taxonomy.php:97
+#: library/cuztom/src/Entities/Taxonomy.php:97
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: library/cuztom/Entities/Taxonomy.php:99
+#: library/cuztom/src/Entities/Taxonomy.php:99
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: library/cuztom/Entities/Taxonomy.php:156
+#: library/cuztom/src/Entities/Taxonomy.php:156
+#, php-format
+msgid "Show all %s"
+msgstr ""
+
+#: library/cuztom/Meta/Box.php:141 library/cuztom/src/Meta/Box.php:141
+msgid "Date"
+msgstr ""
+
+#: library/cuztom/Support/Ajax.php:89 library/cuztom/Support/Ajax.php:146
+#: library/cuztom/src/Support/Ajax.php:89
+#: library/cuztom/src/Support/Ajax.php:146
+msgid "Limit reached!"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/bundle/bundle.php:29
+#: library/cuztom/resources/views/fields/repeatable/repeatable.php:26
+msgid "No items found."
+msgstr ""
+
+#: library/cuztom/resources/views/fields/bundle/control.php:11
+#: library/cuztom/resources/views/fields/repeatable/control.php:11
+msgid "Add item"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/file.php:14
+msgid "Select file"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/file.php:21
+msgid "Remove current file"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/image.php:14
+msgid "Select image"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/image.php:21
+msgid "Remove current image"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/yes-no.php:5
+msgid "Yes"
+msgstr ""
+
+#: library/cuztom/resources/views/fields/yes-no.php:5
+msgid "No"
+msgstr ""
+
+#: library/cuztom/src/Cuztom.php:542
+msgid "Use of a reserved term."
+msgstr ""
+
+#: page-edit-event.php:15
+msgid "edit event"
+msgstr ""
+
+#: page-edit-profil.php:35
+msgid "Nickname"
+msgstr ""
+
+#: page-edit-profil.php:39
+msgid "Firstname"
+msgstr ""
+
+#: page-edit-profil.php:43
+msgid "Lastname"
+msgstr ""
+
+#: page-edit-profil.php:53 templates/events/edit.php:286
+msgid "Save"
+msgstr ""
+
+#: page-login.php:11 page-login.php:17
+msgid "Log In"
+msgstr ""
+
+#: page-login.php:14
+msgid "Username or Email Address"
+msgstr ""
+
+#: page-login.php:16
+msgid "Remember Me"
+msgstr ""
+
+#: page-login.php:22
+msgid "Registration"
+msgstr ""
+
+#: page-profil.php:33
+msgid "Edit profil"
+msgstr ""
+
+#: page-profil.php:40
+msgid "My events"
+msgstr ""
+
+#: templates/events/archive.php:31
+msgid "Search"
+msgstr ""
+
+#: templates/events/edit.php:113
+msgid "Event name must be filled."
+msgstr ""
+
+#: templates/events/edit.php:115
+msgid "Event name is too long."
+msgstr ""
+
+#: templates/events/edit.php:119
+msgid "At least one date must be filled."
+msgstr ""
+
+#: templates/events/edit.php:123
+msgid "At least one age epoch must be filled."
+msgstr ""
+
+#: templates/events/edit.php:206
+msgid "Event name"
+msgstr ""
+
+#: templates/events/edit.php:210
+msgid "Event visible only for registrated users"
+msgstr ""
+
+#: templates/events/edit.php:214
+msgid "Date of start"
+msgstr ""
+
+#: templates/events/edit.php:218
+msgid "Date of end"
+msgstr ""
+
+#: templates/events/edit.php:226
+msgid "Organisator email"
+msgstr ""
+
+#: templates/events/edit.php:230
+msgid "Organisator phone"
+msgstr ""
+
+#: templates/events/edit.php:234
+msgid "Website"
+msgstr ""
+
+#: templates/events/edit.php:240
+msgid "At least one"
+msgstr ""
+
+#: templates/events/single.php:21
+msgid "Edit"
+msgstr ""
+
+#: templates/events/single.php:22
+msgid "Do you really want to remove this item?"
+msgstr ""
+
+#: templates/events/single.php:22
+msgid "Remove"
+msgstr ""
+
+#: templates/events/single.php:35
+msgid "Published"
+msgstr ""
+
+#: templates/events/single.php:37
+msgid "Modified"
+msgstr ""
+
+#: templates/events/single.php:41
+msgid "Created by"
+msgstr ""

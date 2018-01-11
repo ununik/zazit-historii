@@ -15,6 +15,7 @@ global $frontend;
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
+    <title><?php wp_title(); ?></title>
     <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <?php endif; ?>
@@ -26,45 +27,47 @@ global $frontend;
     <div class="site-inner">
         <header id="main-header">
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-            <?php if ( has_nav_menu( 'main-menu' ) ) : ?>
                 <div class="main-menu">
-                    <div id="menu_toggle"><span></span><span></span><span></span></div>
-                    <div class="user_panel">
-                        <?php
-                        if (!is_user_logged_in()) {
-                            ?>
-                            <div class="current_user">
-                                <a class="header_login" href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login / Registration', THEME); ?>"><?php echo __('Login / Registration', THEME); ?></a>
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>">
-                                <span><?php echo $frontend->get_user_name( get_current_user_id() ); ?></span>
-                            </div>
-                            <div class="user_menu">
-                                <a class="show_on_hover_profil" href="<?php echo get_home_url().'/profil/'; ?>" title="<?php echo __('Profil', THEME); ?>"><?php echo __('Profil', THEME); ?></a>
-                                <a class="show_on_hover_profil" href="<?php echo get_home_url().'/new-event/'; ?>" title="<?php echo __('Add new event', THEME); ?>"><?php echo __('Add new event', THEME); ?></a>
-                                <a class="show_on_hover_profil" href="<?php echo wp_logout_url( get_home_url() ); ?>" title="<?php echo __('Logout', THEME); ?>"><?php echo __('Logout', THEME); ?></a>
-                            </div>
-                            <?php
-                        }
+                <div id="menu_toggle"><span></span><span></span><span></span></div>
+                <div class="user_panel">
+                    <?php
+                    if (!is_user_logged_in()) {
                         ?>
-                        <form action="<?php echo get_post_type_archive_link( '_events' ) ?>" method="get">
-                            <div class="search-form">
-                                <input type="text" class="search-form-input" placeholder="<?php echo __( 'Search events...', THEME ) ?>" name="<?php echo __( 'search', THEME ) ?>">
-                                <input type="submit" class="search-form-button" value="">
-                            </div>
-                        </form>
+                        <div class="current_user">
+                            <a class="header_login" href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login / Registration', THEME); ?>"><?php echo __('Login / Registration', THEME); ?></a>
+                        </div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>">
+                            <span><?php echo $frontend->get_user_name( get_current_user_id() ); ?></span>
+                        </div>
+                        <div class="user_menu">
+                            <a class="show_on_hover_profil" href="<?php echo get_home_url().'/profil/'; ?>" title="<?php echo __('Profil', THEME); ?>"><?php echo __('Profil', THEME); ?></a>
+                            <a class="show_on_hover_profil" href="<?php echo get_home_url().'/new-event/'; ?>" title="<?php echo __('Add new event', THEME); ?>"><?php echo __('Add new event', THEME); ?></a>
+                            <a class="show_on_hover_profil" href="<?php echo get_the_permalink( 17 ); ?>" title="<?php echo get_the_title( 17 ) ?>"><?php echo get_the_title( 17 ); ?></a>
+                            <a class="show_on_hover_profil" href="<?php echo wp_logout_url( get_home_url() ); ?>" title="<?php echo __('Logout', THEME); ?>"><?php echo __('Logout', THEME); ?></a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <form action="<?php echo get_post_type_archive_link( '_events' ) ?>" method="get">
+                        <div class="search-form">
+                            <input type="text" class="search-form-input" placeholder="<?php echo __( 'Search events...', THEME ) ?>" name="<?php echo __( 'search', THEME ) ?>">
+                            <input type="submit" class="search-form-button" value="">
+                        </div>
+                    </form>
                     </div>
+                    <?php if ( has_nav_menu( 'main-menu' ) ) : ?>
                     <?php
                     /*wp_nav_menu( array(
                         'theme_location' => 'main-menu',
                         'menu_class'     => 'main-menu-list',
                     ) );*/
                     ?>
+
+                    <?php endif; ?>
                 </div>
-            <?php endif; ?>
         </header>
         <div id="main-part">
             <div id="navigation-panel">

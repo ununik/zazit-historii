@@ -38,6 +38,8 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         add_action('wp_ajax_nopriv_ad_click', array($this, 'ad_click'));
 
         add_action('wp_head', array( $this, 'define_constants_for_scripts' ) );
+
+        add_filter( 'wp_title', array( $this, 'site_title' ), 10, 2 );
     }
 
     public function import_single_template($single_template)
@@ -133,14 +135,14 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         return date('j. n. Y', $date1) . ' - ' . date('j. n. Y', $date2);
     }
 
-    public function get_all_ages_list()
+    public function get_all_ages_list( $hide_empty = true )
     {
-        $terms = $this->get_ages_by_parent(0);
+        $terms = $this->get_ages_by_parent(0, $hide_empty);
 
         return $terms;
     }
 
-    private function get_ages_by_parent($parent)
+    private function get_ages_by_parent($parent, $hide_empty)
     {
         $terms = get_terms(
             [
@@ -148,13 +150,14 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 'parent' => $parent,
                 'meta_key' => '_ages_year',
                 'orderby' => '_ages_year',
+                'hide_empty' => $hide_empty
             ]
         );
 
         $return = [];
         foreach ($terms as $term) {
             $return[$term->term_id]['data'] = $term;
-            $return[$term->term_id]['children'] = $this->get_ages_by_parent($term->term_id);
+            $return[$term->term_id]['children'] = $this->get_ages_by_parent($term->term_id, $hide_empty);
         }
 
         return $return;
@@ -285,18 +288,26 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         echo '
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
     <p>
-    <label for="username">Username <strong>*</strong></label>
+    <label for="username">'.__('Username', THEME).' <strong>*</strong></label>
     <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '">
     </p>
     
     <p>
-    <label for="email">Email <strong>*</strong></label>
+    <label for="email">'.__('Email', THEME).' <strong>*</strong></label>
     <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '">
     </p>
      
     <p>
-    <label for="password">Password <strong>*</strong></label>
+    <label for="password">'.__('Password', THEME).' <strong>*</strong></label>
     <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '">
+    </p>
+
+    <p>
+    <input type="checkbox" name="rules" value="agree">
+    <label for="rules">';
+        printf(__('Do you agree with our <a href="%s" target="_blank">rules</a>?', THEME), get_the_permalink( 17 ) );
+
+        echo '<strong>*</strong></label>
     </p>
      
     <input type="submit" name="submit" value="Register"/>
@@ -334,7 +345,8 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                 $_POST['fname'],
                 $_POST['lname'],
                 $_POST['nickname'],
-                $_POST['bio']
+                $_POST['bio'],
+                isset($_POST['rules']) ? $_POST['rules'] : ''
             );
 
             // sanitize user form input
@@ -374,7 +386,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         );
     }
 
-    public function registration_validation($username, $password, $email, $website, $first_name, $last_name, $nickname, $bio)
+    public function registration_validation($username, $password, $email, $website, $first_name, $last_name, $nickname, $bio, $rules)
     {
         global $reg_errors;
         $reg_errors = new WP_Error;
@@ -405,6 +417,13 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
         if (email_exists($email)) {
             $reg_errors->add('email', __('Email Already in use', THEME));
+        }
+
+        if (email_exists($email)) {
+            $reg_errors->add('email', __('Email Already in use', THEME));
+        }
+        if ($rules != 'agree') {
+            $reg_errors->add('rule', __('You must agree with our rules', THEME));
         }
 
         if (is_wp_error($reg_errors)) {
@@ -443,7 +462,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
         // EVENT AGES
         $matches = null;
-        preg_match('/events\/(.*)\//', $_SERVER["REQUEST_URI"], $matches, PREG_OFFSET_CAPTURE);
+        preg_match('/'.__('events', THEME).'\/(.*)\//', $_SERVER["REQUEST_URI"], $matches, PREG_OFFSET_CAPTURE);
 
         if ((isset($matches[1][0]) && $matches[1][0] != '') && !isset($_GET['custom'])) {
             $_GET['custom'] = true;
@@ -569,6 +588,11 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         echo '<script type="text/javascript">
            var ajax_url = "'.admin_url().'/admin-ajax.php";
          </script>';
+    }
+
+    public function site_title($name, $split) {
+        $name = get_bloginfo('name') . $name;
+        return $name;
     }
 }
 $frontend = new ZazitHistoriiFrontend();

@@ -119,7 +119,7 @@ if ( count( $query->posts ) != 0 ) :
         }
     echo '</div>';// END .events-cards-wrapper
 else:
-    echo 'No events found'; //TODO: add nothing found template
+    echo __( 'No event found', THEME ); //TODO: add nothing found template
 endif;
 
 get_footer();

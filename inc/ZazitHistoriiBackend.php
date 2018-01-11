@@ -234,6 +234,11 @@ class ZazitHistoriiBackend extends ZazitHistorii
                                         'type'  => 'text',
                                         'label' => __( 'Views', THEME ),
                                     ],
+                                    [
+                                        'id'    => '_ad_clicks',
+                                        'type'  => 'text',
+                                        'label' => __( 'Clicks', THEME ),
+                                    ],
                                 ]
                             ],
                         ]

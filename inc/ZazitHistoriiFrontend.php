@@ -33,6 +33,11 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
         add_action('wp_ajax_map_data', array($this, 'map_data'));
         add_action('wp_ajax_nopriv_map_data', array($this, 'map_data'));
+
+        add_action('wp_ajax_ad_click', array($this, 'ad_click'));
+        add_action('wp_ajax_nopriv_ad_click', array($this, 'ad_click'));
+
+        add_action('wp_head', array( $this, 'define_constants_for_scripts' ) );
     }
 
     public function import_single_template($single_template)
@@ -240,15 +245,23 @@ class ZazitHistoriiFrontend extends ZazitHistorii
             $link = get_post_meta($query->posts[0]->ID, '_ad_link', true);
 
             if ($link && $link != '') {
-                $return = '<div class="partner-wrapper"><a href="' . $link . '" target="_blank">' . $query->posts[0]->post_content . '</a></div>';
+                $return = '<div class="partner-wrapper" data-id="'.$query->posts[0]->ID.'"><a href="' . $link . '" target="_blank">' . $query->posts[0]->post_content . '</a></div>';
             } else {
-                $return = '<div class="partner-wrapper">' . $query->posts[0]->post_content . '</div>';
+                $return = '<div class="partner-wrapper" data-id="'.$query->posts[0]->ID.'">' . $query->posts[0]->post_content . '</div>';
             }
         } else {
-            $return = '<div class="partner-wrapper"></div>';
+            $return = '<div class="partner-wrapper" data-id="0"></div>';
         }
 
         return $return;
+    }
+
+    public function ad_click()
+    {
+        $clicks = (int)get_post_meta((int) $_POST['ad_id'], '_ad_clicks', true);
+        $clicks++;
+        update_post_meta((int) $_POST['ad_id'], '_ad_clicks', $clicks);
+        die();
     }
 
     public function get_default_event_color()
@@ -549,6 +562,13 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         $query = new WP_Query($args);
 
         return $query;
+    }
+
+    public function define_constants_for_scripts()
+    {
+        echo '<script type="text/javascript">
+           var ajax_url = "'.admin_url().'/admin-ajax.php";
+         </script>';
     }
 }
 $frontend = new ZazitHistoriiFrontend();

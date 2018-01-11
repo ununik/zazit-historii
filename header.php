@@ -34,7 +34,7 @@ global $frontend;
                         if (!is_user_logged_in()) {
                             ?>
                             <div class="current_user">
-                                <a href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login / register', THEME); ?>"><?php echo __('Login', THEME); ?></a>
+                                <a class="header_login" href="<?php echo get_home_url().'/login/' ?>" title="<?php echo __('Login / Registration', THEME); ?>"><?php echo __('Login / Registration', THEME); ?></a>
                             </div>
                             <?php
                         } else {

@@ -19,23 +19,26 @@ $(document).ready(function(){
         }
     });
 
-    window.addEventListener( "afu_file_removed", function(e){
-        $("#event_image").val( '' );
-        $("#image_from").attr('src', '');
-    }, false);
+    $('.partner-wrapper').click(function () {
+        var id = $(this).data('id')
 
-    window.addEventListener( "afu_file_uploaded", function(e){
-        if( "undefined" !== typeof e.data.response.media_uri ) {
-            $("#event_image").val( e.data.response.media_uri );
-            $("#image_from").attr('src', e.data.response.media_uri);
-        }
-    }, false);
+        var data = {
+            'action': 'ad_click',
+            'ad_id': id
+        };
+
+        // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+        jQuery.post(ajax_url, data, function(response) {});
+    })
 });
 
 const $mapEl = $('#g-map')
 
 var home_path = '';
 function initAutocomplete(response) {
+    if (response.response.length > 0) {
+        $('#g-map').css('height', Math.round(parseInt($('#g-map').css('width')) * 0.5))
+    }
     if (typeof google === 'undefined') return
     home_path = response.home_path;
     

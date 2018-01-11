@@ -15,6 +15,11 @@ Text Domain: zazit_historii
     background-repeat: no-repeat;
     max-width: 100%;
     height: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 body{
     margin: 0px;
@@ -251,7 +256,6 @@ body{
     margin: 20px 0px;
 }
 .search-form{
-    box-shadow: 1px 1px 5px gray;
     height: 27px;
     position: absolute;
     top: 0px;
@@ -301,10 +305,13 @@ body{
     display: inline-block;
     padding-right: 25px;
     height: 40px;
-    background-color: gray;
+    background-color: #141414;
     cursor: pointer;
     width: 400px;
     box-sizing: border-box;
+}
+.current_user:hover{
+    background-color: #0a0a0a;
 }
 .current_user img{
     width: 34px;
@@ -318,12 +325,20 @@ body{
     position: relative;
     top: -10px;
 }
+.header_login{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 94px;
+    padding-top: 1px;
+}
 .user_panel{
     position: fixed;
     top: 0px;
     width: 100%;
     left: 0px;
-    background-color: silver;
+    background-color: black;
     height: 40px;
     line-height: 40px;
     z-index: 150;
@@ -335,23 +350,28 @@ body{
 .half_page label{
     display: block;
 }
-.half_page input[type=text]{
+.half_page input[type=text], .half_page input[type=email], .half_page input[type=password]{
     width: 100%;
     box-sizing: border-box;
-    padding: 3px 6px;
+    padding: 4px 6px;
     margin: 5px 0px 15px 0px;
+    border: 1px solid silver;
+    outline: none;
+    border-radius: 7px;
 }
-.half_page input[type=email]{
-    width: 100%;
-    box-sizing: border-box;
-    padding: 3px 6px;
-    margin: 5px 0px 15px 0px;
+.half_page input[type=text]:focus, .half_page input[type=email]:focus, .half_page input[type=password]:focus{
+    border: 1px solid gray;
 }
-.half_page input[type=password]{
-    width: 100%;
-    box-sizing: border-box;
-    padding: 3px 6px;
-    margin: 5px 0px 15px 0px;
+.half_page input[type=submit]{
+    outline: none;
+    border: none;
+    width: 200px;
+    margin: 10px auto 0px auto;
+    display: block;
+    padding: 8px;
+    color: white;
+    background-color: black;
+    border-radius: 7px;
 }
 .error_message{
     color: #ab0000;
@@ -386,7 +406,7 @@ body{
 }
 .user_menu{
   display: none;
-  background-color: gray;
+  background-color: #1c1c1c;
   padding: 5px;
   position: absolute;
   top: 40px;
@@ -396,6 +416,9 @@ body{
   font-size: 14px;
     width: 400px;
     box-sizing: border-box;
+}
+.user_menu a:hover{
+    background-color: #0c0c0c;
 }
 .user_menu a{
   display: block;
@@ -465,6 +488,7 @@ body{
         box-sizing: border-box;
         float: left;
         padding: 0px 12px 0px 12px;
+        min-height: 100vH;
     }
     #main-footer{
         box-sizing: border-box;
@@ -519,7 +543,8 @@ body{
     #g-map{
         float: left;
         width: 100%;
-        height: 450px;
+        /*height: 450px;*/
+        height: 0px;
         box-sizing: border-box;
     }
 }

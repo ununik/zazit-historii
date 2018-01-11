@@ -1,8 +1,8 @@
 <?php
 $event_name = '';
 $city = '';
-$from = '';
-$to = '';
+$from = time();
+$to = time();
 $email = '';
 $tel = '';
 $link = '';

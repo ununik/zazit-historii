@@ -303,11 +303,10 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     </p>
 
     <p>
-    <input type="checkbox" name="rules" value="agree">
-    <label for="rules">';
+    <input type="checkbox" name="rules" value="agree">';
         printf(__('Do you agree with our <a href="%s" target="_blank">rules</a>?', THEME), get_the_permalink( 17 ) );
 
-        echo '<strong>*</strong></label>
+        echo '<strong>*</strong>
     </p>
      
     <input type="submit" name="submit" value="Register"/>

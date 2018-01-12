@@ -30,6 +30,17 @@ $(document).ready(function(){
         // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
         jQuery.post(ajax_url, data, function(response) {});
     })
+
+    $(window).scroll(function(){
+        if($(this).scrollTop() >= 10) {
+            $('.small_icon').css('left', '1px');
+            $('.site-title').css('top', '-80px');
+        }
+        if($(this).scrollTop() < 10) {
+            $('.small_icon').css('left', '-41px');
+            $('.site-title').css('top', '0px');
+        }
+    });
 });
 
 const $mapEl = $('#g-map')

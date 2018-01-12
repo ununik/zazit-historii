@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="700"
-   height="700"
-   viewBox="0 0 185.20833 185.20834"
+   width="200"
+   height="200"
+   viewBox="0 0 52.916666 52.916669"
    version="1.1"
    id="svg5922"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="yellow_logo.svg">
+   sodipodi:docname="battle.svg">
   <defs
      id="defs5916" />
   <sodipodi:namedview
@@ -38,18 +38,7 @@
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1">
-    <sodipodi:guide
-       position="-77.863094,185.20834"
-       orientation="0,1"
-       id="guide6491"
-       inkscape:locked="false" />
-    <sodipodi:guide
-       position="-117.17262,0.75595241"
-       orientation="0,1"
-       id="guide6493"
-       inkscape:locked="false" />
-  </sodipodi:namedview>
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5919">
     <rdf:RDF>
@@ -66,18 +55,10 @@
      inkscape:label="Vrstva 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-111.79165)">
+     transform="translate(0,-244.08332)">
     <g
-       id="g6531"
-       transform="translate(0,3.6783854e-6)">
-      <rect
-         rx="22.499998"
-         y="111.79165"
-         x="2.5431316e-006"
-         height="185.20833"
-         width="185.20833"
-         id="rect4531-0-4"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:13.88749981;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+       id="g6552"
+       transform="matrix(0.33333333,0,0,0.33333333,-4.4097198,202.40972)">
       <rect
          rx="19.285713"
          y="125.02081"

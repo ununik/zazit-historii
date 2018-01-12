@@ -40,16 +40,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="222.37685"
-     inkscape:cy="623.1126"
+     inkscape:zoom="1.0435424"
+     inkscape:cx="463.54391"
+     inkscape:cy="694.99008"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -169,6 +169,63 @@
                sodipodi:nodetypes="cc" />
           </g>
         </g>
+      </g>
+    </g>
+    <g
+       id="g5896">
+      <rect
+         rx="9"
+         y="82.023262"
+         x="86.124847"
+         height="74.083336"
+         width="74.083336"
+         id="rect4531-0"
+         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.55499983;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+      <g
+         style="fill:#ffff00;fill-opacity:0.99215686"
+         id="g5261-0-8"
+         transform="matrix(1.0550174,0,0,1.0550174,92.080037,82.768578)">
+        <g
+           style="fill:#ffff00;fill-opacity:0.99215686"
+           transform="matrix(-0.36179294,-0.27842047,-0.27842047,0.36179294,73.471869,22.965779)"
+           id="g4785-50-8">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="rect4779-2-9"
+             transform="scale(0.26458333)"
+             d="m 235.32031,364.15625 -14.91211,1.01563 v 74.40429 h 29.82618 v -74.40429 z"
+             style="opacity:1;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:1.98704481;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+          <path
+             sodipodi:nodetypes="ccccccc"
+             inkscape:connector-curvature="0"
+             id="rect4500-9-2"
+             transform="scale(0.26458333)"
+             d="m 235.32227,78.886719 -27.75,36.000001 3.78515,224.71875 23.96289,1.62891 23.9668,-1.62891 3.78516,-224.71875 z"
+             style="opacity:1;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:1.71212602;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+          <path
+             style="opacity:1;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:0.47509792;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 57.277732,117.6426 h 9.96881 l 1.058333,8.00423 H 56.219399 Z"
+             id="rect4508-4-8"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             style="opacity:1;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:0.45300001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 46.717857,90.568299 15.544281,1.058334 15.544281,-1.058334 v 5.499557 L 62.262138,95.009522 46.717857,96.067856 Z"
+             id="rect4503-3-8"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccccc" />
+        </g>
+        <g
+           aria-label="ZAŽÍT"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:12.15027618px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L Semi-Bold';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:0.91127062"
+           id="text4943-5-8"
+           transform="matrix(0.45652173,0,0,0.45652173,-17.49953,10.247184)" />
+        <g
+           aria-label="HISTORII"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:12.15027618px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L Semi-Bold';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:0.99215686;stroke:none;stroke-width:0.91127062"
+           id="text4943-2-4-3"
+           transform="matrix(0.45652173,0,0,0.45652173,-17.49953,10.247184)" />
       </g>
     </g>
   </g>

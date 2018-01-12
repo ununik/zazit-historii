@@ -26,10 +26,11 @@ global $frontend;
 <div id="page" class="site">
     <div class="site-inner">
         <header id="main-header">
-            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="icon"></a><a class="site-title-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 <div class="main-menu">
                 <div id="menu_toggle"><span></span><span></span><span></span></div>
                 <div class="user_panel">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="small_icon"></a>
                     <?php
                     if (!is_user_logged_in()) {
                         ?>

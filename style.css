@@ -237,7 +237,13 @@ a{
     margin: 17px 0px 7px 0px;
 }
 .events_title{
+    box-sizing: border-box;
+    padding: 0px 2px;
     font-size: 16px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .events_meta{
     font-size: 12px;
@@ -497,7 +503,7 @@ a{
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url(assets/images/icons/remove.svg)
+    background-image: url(assets/images/icons/remove.svg);
 }
 .edit{
     text-indent: 100%;
@@ -506,10 +512,44 @@ a{
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-image: url(assets/images/icons/edit.svg)
+    background-image: url(assets/images/icons/edit.svg);
 }
 ol li{
     margin: 10px 5px;
+}
+.theme-icon{
+    width: 30px;
+    height: 30px;
+}
+#file_upload{
+    display: inline-block;
+    width: 100%;
+    background-size: 60px 60px;
+    background-position: top center;
+    background-image: url(assets/images/icons/upload.svg);
+    padding-top: 70px;
+    z-index: -100;
+    cursor: pointer;
+}
+.img_wapper{
+    position: relative;
+    max-width: 200px;
+}
+.img_wapper button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    curson: pointer;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    background-image: url(assets/images/icons/remove.svg);
+    outline: none;
+    border: none;
+}
+.img_wapper img{
+    width: 100%;
+    height: auto;
 }
 
 @media only screen and (min-width: 600px) {

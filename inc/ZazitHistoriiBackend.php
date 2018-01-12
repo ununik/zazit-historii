@@ -31,6 +31,7 @@ class ZazitHistoriiBackend extends ZazitHistorii
 
         /* Register Taxonomy metaboxes */
         add_action( 'init', array( $this, 'register_ages_metaboxes' ) );
+        add_action( 'init', array( $this, 'register_themes_metaboxes' ) );
         /* END Register Taxonomy metaboxes */
 
         /* Save post actions */
@@ -286,6 +287,20 @@ class ZazitHistoriiBackend extends ZazitHistorii
         );
     }
 
+    public function register_themes_metaboxes()
+    {
+        register_cuztom_term_meta( 'custom_themes', '_themes',  [
+                'fields' => [
+                    [
+                        'id'    => '_themes_image',
+                        'type'  => 'image',
+                        'label' => __( 'Image', THEME ),
+                    ],
+                ]
+            ]
+        );
+    }
+
     public function save_events_hook( $post_id )
     {
         if ($_POST['post_type'] == '_events' && !isset($_POST['updated'])) {
@@ -330,6 +345,7 @@ class ZazitHistoriiBackend extends ZazitHistorii
 
     public function remove_default_stylesheets() {
         wp_deregister_style('main_styles');
+        wp_deregister_script(THEME . '_script');
     }
 }
 

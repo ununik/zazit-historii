@@ -41,6 +41,21 @@ $(document).ready(function(){
             $('.site-title').css('top', '0px');
         }
     });
+
+
+
+    $('.remove_image').click(function() {
+        $.post(ajax_url, {
+            action: 'delete_attachment',
+            fileId: $('.remove_image').data('id')
+        }).always(function() {
+            $preview = $('.remove_image_wrapper');
+            $preview.fadeOut(function() {
+                return $preview.off().remove()
+            })
+        })
+        $('#file_upload_data').val('');
+    })
 });
 
 const $mapEl = $('#g-map')

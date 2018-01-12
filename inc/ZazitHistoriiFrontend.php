@@ -14,6 +14,8 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         wp_enqueue_script(THEME . '_maps', 'http://maps.google.com/maps/api/js?sensor=false&libraries=places&key='.$this->googleMapKey, array('jquery'), '20160816', false);
         wp_enqueue_script(THEME . '_maps_cluster', get_template_directory_uri() . '/assets/scripts/markerclusterer.js', array('jquery'), '20160816', false);
         wp_enqueue_script('jquery-ui-datepicker');
+        wp_enqueue_script(THEME . '_dropzone', get_template_directory_uri() . '/assets/scripts/dropzone.js', array('jquery'), '20160816', false);
+
 
         wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 
@@ -33,6 +35,9 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
         add_action('wp_ajax_map_data', array($this, 'map_data'));
         add_action('wp_ajax_nopriv_map_data', array($this, 'map_data'));
+
+        add_action('wp_ajax_upload_img', array($this, 'upload_img'));
+        add_action('wp_ajax_delete_attachment', array($this, 'delete_attachment'));
 
         add_action('wp_ajax_ad_click', array($this, 'ad_click'));
         add_action('wp_ajax_nopriv_ad_click', array($this, 'ad_click'));
@@ -64,10 +69,10 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         return $archive_template;
     }
 
-    public function get_all_events_from_date_to_date($date1, $date2 = 0, $ages = [], $search = '')
+    public function get_all_events_from_date_to_date($date1, $date2 = 0, $ages = [], $search = '', $limit = -1)
     {
         $args['post_type'] = '_events';
-        $args['posts_per_page'] = -1;
+        $args['posts_per_page'] = $limit;
         $args['order'] = 'ASC';
         $args['orderby'] = 'meta_value_num';
         $args['meta_key'] = '_event_date_from';
@@ -467,7 +472,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
             $_GET['custom'] = true;
 
             if (!is_numeric(substr($matches[1][0], 0, 4))) {
-                $_GET['ages'] = $matches[1][0];
+                $_GET[ __( 'ages', THEME ) ] = $matches[1][0];
                 $wp_query = new WP_Query(
                     array(
                         'post_type' => '_events',
@@ -518,18 +523,20 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
     public function map_data()
     {
-        if (isset($_REQUEST[ __( 'ages', THEME ) ])) {
+        if (isset($_REQUEST['ages'])) {
             $events = $this->get_all_events_from_date_to_date(
                 strtotime('today', current_time('timestamp')),
                 0,
-                $_REQUEST[ __( 'ages', THEME ) ]
+                $_REQUEST['ages'],
+                '',
+                50
             );
-        } else if($_REQUEST[ __( 'search', THEME ) ]) {
+        } else if($_REQUEST['search']) {
             $events = $this->get_all_events_from_date_to_date(
                 strtotime('today', current_time('timestamp')),
                 0,
                 [],
-                $_REQUEST[ __( 'search', THEME ) ]
+                $_REQUEST['search']
             );
         } else if($_REQUEST['id']) {
             $events = new WP_Query(
@@ -592,6 +599,35 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     public function site_title($name, $split) {
         $name = get_bloginfo('name') . $name;
         return $name;
+    }
+
+    public function upload_img()
+    {
+        if (!function_exists('wp_handle_upload')) {
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+        }
+        $movefile = media_handle_upload('file', 0);
+
+        if ($movefile && !isset($movefile['error'])) {
+            echo $movefile;
+        } else {
+            echo $movefile['error'];
+        }
+        die();
+    }
+
+    public function delete_attachment()
+    {
+        if (isset($_POST['fileId'])) {
+            if (wp_delete_attachment($_POST['fileId'], true)) {
+                echo 1;
+            } else {
+                echo 0;
+            }
+        } else {
+            echo 0;
+        }
+        die();
     }
 }
 $frontend = new ZazitHistoriiFrontend();

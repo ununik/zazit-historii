@@ -14,6 +14,7 @@ $visible = 'on';
 $ages_terms = [];
 $themes_terms = [];
 $error = [];
+$file = 0;
 
 $new_event = true;
 
@@ -41,6 +42,7 @@ if (isset($_GET['event'])) {
         }
 
         $event_name = get_the_title($my_posts[0]->ID);
+        $file = (int) get_post_thumbnail_id($my_posts[0]->ID);
         $city = get_post_meta( $my_posts[0]->ID, '_event_city', true );
         $from = get_post_meta( $my_posts[0]->ID, '_event_date_from', true );
         $to = get_post_meta( $my_posts[0]->ID, '_event_date_to', true );
@@ -69,6 +71,7 @@ if (isset($_GET['event'])) {
 
 if (isset($_POST['event_save'])) {
     $event_name = htmlspecialchars($_POST['event_name']);
+    $file = (int) $_POST['file_upload_data'];
     $city = htmlspecialchars($_POST['event_city']);
     $from = strtotime($_POST['event_from']);
     $to = strtotime($_POST['event_to']);
@@ -138,6 +141,7 @@ if (isset($_POST['event_save'])) {
             $pid = $my_posts[0]->ID;
         endif;
 
+        set_post_thumbnail( $pid, $file );
         wp_set_post_terms($pid, $ages_terms, '_ages', false);
         wp_set_post_terms($pid, $themes_terms, '_themes', false);
 
@@ -196,7 +200,7 @@ if ( count($error) > 0 ) {
     echo '</ul>';
 }
 ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="login_form half_page">
             <p>
                 <label for="name"><?php echo __( 'Event name', THEME ); ?> *</label>
@@ -230,6 +234,18 @@ if ( count($error) > 0 ) {
                 <label for="event_link"><?php echo __( 'Website', THEME ); ?></label>
                 <input type="text" id="event_link" name="event_link" value="<?php echo $link; ?>">
             </p>
+
+            <p>
+                <label for="name"><?php echo __( 'Event image', THEME ); ?></label>
+            <div id="file_upload"><span class="file_upload_button"></span></div>
+            <input type="hidden" id="file_upload_data" name="file_upload_data" value="<?php echo $file;?>">
+            <?php if ($file != 0) {
+                $thumbnail = wp_get_attachment_image_url($file, 'event-thumbnail');
+                ?>
+                <div class="remove_image_wrapper img_wapper"><img data-dz-thumbnail="" alt="<?php echo basename( $thumbnail ); ?>" src="<?php echo $thumbnail  ?>"><button type="button" class="remove_image" data-id="<?php echo $file;?>">✕</button></div>
+            <?php } ?>
+            </p>
+
         </div>
         <div class="login_form half_page">
             <p>
@@ -303,4 +319,57 @@ if ( count($error) > 0 ) {
                 markerIcon: '<?php echo get_template_directory_uri() . '/assets/images/icons/map_sword.svg' ?>',
             }
         );
+
+        var myDropzone = new Dropzone("#file_upload", {
+            acceptedFiles: 'image/*',
+            HiddenFilesPath : 'body',
+            ignoreHiddenFiles: true,
+            url: ajax_url,
+            params: {
+                action: 'upload_img'
+            },
+            maxFiles: 1,
+            thumbnailWidth: 200,
+            thumbnailHeight: 120,
+            previewTemplate: '<div class="dz-preview img_wapper"><img data-dz-thumbnail /><button type="button" data-dz-remove>\u2715</button></div>',
+            success: function success(file, response) {
+                if ($('.remove_image') !== 'undefined') {
+                    $.post(ajax_url, {
+                        action: 'delete_attachment',
+                        fileId: $('.remove_image').data('id')
+                    }).always(function () {
+                        $preview = $('.remove_image_wrapper');
+                        $preview.fadeOut(function () {
+                            return $preview.off().remove()
+                        })
+                    })
+                }
+                $('#file_upload_data').val(response);
+            },
+            removedfile: function removedfile(file) {
+                var $field = $('.js-img-drop[data-name="' + file.name + '"]');
+                var fileId = $field.val();
+                var $preview = $('img[alt="' + file.name + '"]').parent();
+                $preview.animate({
+                    opacity: 0.5
+                }, 150);
+                $field.val('').addClass('empty').attr('data-name', '');
+                $.post(ajax_url, {
+                    action: 'delete_attachment',
+                    fileId: fileId
+                }).always(function() {
+                    $preview.fadeOut(function() {
+                        return $preview.off().remove()
+                    })
+                })
+                $('#file_upload_data').val('');
+            },
+            init: function() {
+                this.on("maxfilesexceeded", function(file){
+                    this.removeAllFiles();
+                    $('.dz-preview').remove();
+                    this.addFile(file);
+                });
+            }
+        });
     </script>

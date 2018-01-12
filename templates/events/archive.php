@@ -7,11 +7,11 @@
  * @since Zažít historii 1.0
  */
 get_header();
-if (isset($_GET['ages'])) {
+if (isset($_GET[ __( 'ages', THEME ) ])) {
     $query = $frontend->get_all_events_from_date_to_date(
         strtotime('today', current_time('timestamp')),
         0,
-        $_GET['ages']
+        $_GET[ __( 'ages', THEME ) ]
     );
 } else if (isset($_GET[__( 'search', THEME )])) {
     $query = $frontend->get_all_events_from_date_to_date(

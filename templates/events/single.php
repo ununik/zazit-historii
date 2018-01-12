@@ -27,6 +27,25 @@ endif;
 <?php echo $frontend->get_date_from_timestamps((int) get_post_meta( get_the_ID(), '_event_date_from', true ), (int) get_post_meta( get_the_ID(), '_event_date_to', true )); ?>
 </div>
 <div>
+    <?php
+    $themes = get_the_terms( get_the_ID(), '_themes' );
+    if ($themes) {
+        foreach ($themes as $theme) {
+            $img = get_term_meta($theme->term_id, '_themes_image', true);
+            $img_url = '';
+            if ($img && $img != 0 && $img != '') {
+                $img_url = wp_get_attachment_image_src($img);
+            }
+            if ($img_url == '') {
+                echo '<div title="' . $theme->name . '">' . $theme->name . '</div>';
+            } else {
+                echo '<div class="theme-icon" style="background-image: url(' . $img_url[0] . ');" title="' . $theme->name . '"></div>';
+            }
+        }
+    }
+    ?>
+</div>
+<div>
 <?php echo get_post_meta( get_the_ID(), '_event_description', true ); ?>
 </div>
 <?php

@@ -172,17 +172,31 @@ class ZazitHistoriiFrontend extends ZazitHistorii
     {
         $return = '<ul class="term-navigation">';
         foreach ($terms as $term) {
+            $events = $this->get_all_events_from_date_to_date(strtotime('today')-1, 0, [$term['data']->slug]);
+            $count_of_events = $events->post_count;
+            if ($count_of_events == 0) {
+                continue;
+            }
             $return .= '<li>';
-            $return .= '<a href="' . get_post_type_archive_link('_events') . $term['data']->slug . '/"';
+            $return .= '<div class="inner_link';
+            if ( $term['data']->parent == 0 ) {
+                $return .= ' parent_link ';
+            } else {
+                $return .= ' child_link ';
+            }
+            $return .= '"><a href="' . get_post_type_archive_link('_events') . $term['data']->slug . '/"';
 
             $return .= ' class="link ';
-            if ($current_item_slug == $term['data']->slug) {
+            if ( $current_item_slug == $term['data']->slug ) {
                 $return .= 'current_link';
             }
             $return .= '" ';
             $return .= '>';
             $return .= $term['data']->name;
-            $return .= '</a>';
+            $return .= '<span class="count_of_events">('.$count_of_events.')</span></a></div>';
+            if ( count($term['children']) > 0 ) {
+                $return .= '<div class="parent_toggle"></div>';
+            }
             $return .= $this->show_navigation_from_terms($term['children'], $current_item_slug);
             $return .= '</li>';
         }
@@ -523,6 +537,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
 
     public function map_data()
     {
+        $detail = false;
         if (isset($_REQUEST['ages'])) {
             $events = $this->get_all_events_from_date_to_date(
                 strtotime('today', current_time('timestamp')),
@@ -545,6 +560,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
                     'p' => $_REQUEST['id']
                 )
             );
+            $detail = true;
         } else {
             $events = $this->get_all_events_from_date_to_date(
                 strtotime('today', current_time('timestamp'))
@@ -571,7 +587,7 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         }
 
         header('Content-type: application/json');
-        echo json_encode(['response' => $return, 'home_path' => get_template_directory_uri()]);
+        echo json_encode(['response' => $return, 'home_path' => get_template_directory_uri(), 'detail' => $detail]);
         die();
     }
 

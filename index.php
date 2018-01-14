@@ -11,6 +11,7 @@
 
 get_header();
 global $frontend;
+echo '<div class="content_wrapper">';
 echo '<h3>'.get_the_title().'</h3>';
 
 if ( have_posts() ) :
@@ -19,4 +20,5 @@ if ( have_posts() ) :
         echo $frontend->show_ad();
     endwhile;
 endif;
+echo '</div>';
 get_footer();

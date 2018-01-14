@@ -34,6 +34,10 @@ class ZazitHistoriiBackend extends ZazitHistorii
         add_action( 'init', array( $this, 'register_themes_metaboxes' ) );
         /* END Register Taxonomy metaboxes */
 
+        /* Register Profil metaboxes */
+        add_action( 'init', array( $this, 'register_profil_metaboxes' ) );
+        /* END Register Profil metaboxes */
+
         /* Save post actions */
         add_action( 'save_post', array( $this, 'save_events_hook' ) );
         /* END Save post actions */
@@ -145,6 +149,11 @@ class ZazitHistoriiBackend extends ZazitHistorii
                                 'id'     => '_data_tabs_panel_2',
                                 'title'  => __( 'Contact', THEME ),
                                 'fields' => [
+                                    [
+                                        'id'    => 'event_organisator',
+                                        'type'  => 'text',
+                                        'label' => __( 'Organisator', THEME ),
+                                    ],
                                     [
                                         'id'    => '_event_email',
                                         'type'  => 'text',
@@ -346,6 +355,20 @@ class ZazitHistoriiBackend extends ZazitHistorii
     public function remove_default_stylesheets() {
         wp_deregister_style('main_styles');
         wp_deregister_script(THEME . '_script');
+    }
+
+    public function register_profil_metaboxes()
+    {
+        register_cuztom_user_meta( 'profil_image',
+            [
+                'fields' => [
+                    [
+                        'id'    => '_profil_image',
+                        'type'  => 'image',
+                        'label' => __( 'Profil image', THEME ),
+                    ],
+                ]
+            ] );
     }
 }
 

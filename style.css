@@ -2,7 +2,7 @@
 Theme Name: Zažít historii
 Author: ununik
 Author URI: http://ununik.cz/
-Version: 1.0
+Version: 1.1
 Text Domain: zazit_historii
 */
 @font-face {
@@ -23,6 +23,7 @@ Text Domain: zazit_historii
 }
 body{
     margin: 0px;
+    background-color: #eee;
 }
 a{
     color: gray;
@@ -55,8 +56,8 @@ a{
 .site-title .icon{
     display: inline-block;
     background-image: url(assets/images/logo/yellow_logo.svg);
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -164,19 +165,34 @@ a{
 /*END MENU*/
 #navigation-panel{
     position: relative;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px grey;
+    box-sizing: border-box;
+    padding: 10px;
+}
+#navigation-panel h4{
+    margin: 0px 0px 5px 0px;
+    font-size: 20px;
+    text-align: center;
 }
 #navigation-panel ul{
     display: block;
     margin: 0px;
-    padding: 0 0 0 20px;
+    padding: 0px;
 }
 #navigation-panel ul:first-child{
     padding: 0px;
 }
 #navigation-panel ul li {
+    position: relative;
     display: block;
-    margin: 0px;
+    margin: 5px 0px;
     padding: 0px;
+    box-sizing: border-box;
+}
+#navigation-panel ul li ul{
+    padding: 0px 0px 0px 10px;
 }
 #navigation-panel ul li .link {
     display: block;
@@ -185,17 +201,133 @@ a{
     color: black;
 }
 #navigation-panel ul li .link:hover{
-    background-color: gray;
+    padding-left: 18px;
 }
 #navigation-panel ul li .current_link {
     font-weight: bold;
 }
-
 #navigation-panel{
+    display: block;
+    width: 25%;
+    min-height: 100px;
+    box-sizing: border-box;
+    float: left;
+}
+/* TODO: after slide down catch the top screen frame*/
+#navigation-panel ul:first-child{
+    position: absolute;
+    width: 100%;
+}
+#navigation-panel ul li .child_link{
     display: none;
+}
+#navigation-panel ul .inner_link {
+    width: 100%;
+    border-top: 1px solid #eee;
+    position: relative;
+}
+#navigation-panel ul li .link{
+    width: 100%;
+}
+.parent_toggle{
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    background-image: url(assets/images/icons/continue.svg);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.single_event_date .icon{
+    background-image: url(assets/images/icons/clock.svg);
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: 8px;
+}
+.single_event_date{
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 30px;
+}
+.single_event_organisator .icon{
+    background-image: url(assets/images/icons/person.svg);
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: 8px;
+}
+.single_event_organisator{
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.single_event_link .icon{
+    background-image: url(assets/images/icons/link.svg);
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: 8px;
+}
+.single_event_link{
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 30px;
+}
+.single_event_email .icon{
+    background-image: url(assets/images/icons/email.svg);
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: 8px;
+}
+.single_event_email{
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 30px;
+}
+.single_event_tel .icon{
+    background-image: url(assets/images/icons/tel.svg);
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin-right: 4px;
+    position: relative;
+    top: 8px;
+}
+.single_event_tel{
+    font-size: 14px;
+    display: inline-block;
+}
+.sublabel{
+    font-size: 14px;
+    margin-top: -15px;
+}
+.return_menu{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 .open-panel{
     display: block !important;
+}
+.count_of_events{
+    color: gray;
+    font-size: 12px;
+    padding-left: 8px;
+    position: relative;
+    top: -1px;
 }
 .events-cards-wrapper{
     text-align: center;
@@ -270,21 +402,8 @@ a{
     background-color: black;
     color: white;
 }
-.age_short_name{
-    text-align: center;
-    white-space: nowrap;
-    display: block;
-    font-weight: bold;
-    width: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 100px;
-    z-index: 20;
-    color: rgba(144, 158, 127, 0.16)
-}
 .partner-wrapper{
+    clear: right;
     width: 100%;
     text-align: center;
     margin: 20px 0px;
@@ -328,6 +447,7 @@ a{
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #5A5A5A;
 }
 .archive_title span{
     margin-left: 10px;
@@ -385,6 +505,7 @@ a{
 }
 .half_page label{
     display: block;
+    font-weight: bold;
 }
 .half_page input[type=text], .half_page input[type=email], .half_page input[type=password]{
     width: 100%;
@@ -492,127 +613,132 @@ a{
 .full_page{
     width: 100%;
     clear: both;
+    padding-top: 20px;
 }
 #ui-datepicker-div{
-    display: none;
+display: none;
 }
 .remove{
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url(assets/images/icons/remove.svg);
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+display: inline-block;
+width: 30px;
+height: 30px;
+background-image: url(assets/images/icons/remove.svg);
 }
 .edit{
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url(assets/images/icons/edit.svg);
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+display: inline-block;
+width: 30px;
+height: 30px;
+background-image: url(assets/images/icons/edit.svg);
 }
 ol li{
-    margin: 10px 5px;
+margin: 10px 5px;
 }
 .theme-icon{
-    width: 30px;
-    height: 30px;
+width: 30px;
+height: 30px;
 }
 #file_upload{
-    display: inline-block;
-    width: 100%;
-    background-size: 60px 60px;
-    background-position: top center;
-    background-image: url(assets/images/icons/upload.svg);
-    padding-top: 70px;
-    z-index: -100;
-    cursor: pointer;
+display: inline-block;
+width: 100%;
+background-size: 60px 60px;
+background-position: top center;
+background-image: url(assets/images/icons/upload.svg);
+padding-top: 70px;
+z-index: -100;
+cursor: pointer;
 }
 .img_wapper{
-    position: relative;
-    max-width: 200px;
+position: relative;
+max-width: 200px;
 }
 .img_wapper button{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    curson: pointer;
-    z-index: 100;
-    width: 40px;
-    height: 40px;
-    background-image: url(assets/images/icons/remove.svg);
-    outline: none;
-    border: none;
+position: absolute;
+top: 0px;
+right: 0px;
+curson: pointer;
+z-index: 100;
+width: 40px;
+height: 40px;
+background-image: url(assets/images/icons/remove.svg);
+outline: none;
+border: none;
 }
 .img_wapper img{
-    width: 100%;
-    height: auto;
+width: 100%;
+height: auto;
 }
-
+.content_wrapper{
+    position: relative;
+background-color: white;
+box-shadow: 1px 1px 5px gray;
+border-radius: 5px;
+box-sizing: border-box;
+padding: 5px 20px 12px 20px;
+}
+.content_wrapper h3{
+margin: 4px 0px;
+font-size: 22px;
+}
+.edit_buttons{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
 @media only screen and (min-width: 600px) {
-    #main-header{
-        height: 80px;
-        margin-bottom: 40px;
-    }
-    #menu_toggle{
-        display: none;
-    }
-    .main-menu .main-menu-list{
-        display: block;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-    }
-    .main-menu .main-menu-list li{
-        display: inline-block;
-    }
-    #navigation-panel{
-        display: block;
-        width: 25%;
-        min-height: 100px;
-        box-sizing: border-box;
-        float: left;
-    }
-    /* TODO: after slide down catch the top screen frame*/
-    #navigation-panel ul:first-child{
-        position: absolute;
-        width: 100%;
-    }
-    #content{
-        width: 75%;
-        box-sizing: border-box;
-        float: left;
-        padding: 0px 12px 0px 12px;
-        min-height: 100vH;
-    }
-    #main-footer{
-        box-sizing: border-box;
-        height: 80px;
-        padding: 70px 30px 30px 30px;
-        position: relative;
-    }
-    .subfooter{
-        padding: 60px 30px 0px 30px;
-        line-height: 30px;
-        float:left;
-    }
-    .powered{
-        float: right;
-        background-image: url(assets/images/logo/ununik_logo_white.svg);
-        background-size: 105px 200px;
-        padding-top: 60px;
-        position: relative;
-    }
-    .subfooter a{
-        color: white;
-        text-decoration: none;
-    }
-    .events_wrapper {
-        /*width: 35vW;
-        height: 35vW;*/
+#main-header{
+    height: 80px;
+    margin-bottom: 40px;
+}
+#menu_toggle{
+    display: none;
+}
+.main-menu .main-menu-list{
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.main-menu .main-menu-list li{
+    display: inline-block;
+}
+#content{
+    width: 75%;
+    box-sizing: border-box;
+    float: left;
+    padding: 0px 12px 0px 12px;
+    min-height: 100vH;
+}
+#main-footer{
+    box-sizing: border-box;
+    height: 80px;
+    padding: 70px 30px 30px 30px;
+    position: relative;
+}
+.subfooter{
+    padding: 60px 30px 0px 30px;
+    line-height: 30px;
+    float:left;
+}
+.powered{
+    float: right;
+    background-image: url(assets/images/logo/ununik_logo_white.svg);
+    background-size: 105px 200px;
+    padding-top: 60px;
+    position: relative;
+}
+.subfooter a{
+    color: white;
+    text-decoration: none;
+}
+.events_wrapper {
+    /*width: 35vW;
+    height: 35vW;*/
         width: 30%;
         -webkit-transition-duration: 0s;
         -moz-transition-duration: 0s;
@@ -629,17 +755,23 @@ ol li{
     }
     .half_page:nth-child(odd){
         padding-right: 20px;
+        border-right: 1px solid silver;
     }
     #g-map{
-        float: left;
         width: 100%;
-        /*height: 450px;*/
+        height: 0px;
+        float: right;
         height: 0px;
         box-sizing: border-box;
+        margin: 10px 5px;
+        position: relative;
+        right: 27px;
         -webkit-transition-duration: 0s;
         -moz-transition-duration: 0s;
         -o-transition-duration: 0s;
         transition-duration: 0s;
+        box-shadow: 1px 1px 5px grey;
+        border-radius: 5px;
     }
     #g-map *{
         -webkit-transition-duration: 0s;

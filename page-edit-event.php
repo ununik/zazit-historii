@@ -12,6 +12,8 @@ include(__DIR__ . '/templates/events/edit.php');
 $inner_part = ob_get_clean();
 
 get_header();
+echo '<div class="content_wrapper">';
 echo '<h3>'.__( 'edit event', THEME ).'</h3>';
 echo $inner_part;
+echo '</div>';
 get_footer();

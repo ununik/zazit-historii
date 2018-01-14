@@ -2,6 +2,12 @@ $ = jQuery;
 $(document).ready(function(){
     //OPEN MENU
     $('.events_wrapper').css('height', $('.events_wrapper').css('width') );
+    var heights = $(".half_page").map(function ()
+    {
+        return $(this).height();
+    }).get(),
+    maxHeight = Math.max.apply(null, heights);
+    $('.half_page').css('height', maxHeight );
     $('#menu_toggle').click(function(){
         $(this).toggleClass('open');
         $('.main-menu-list').toggleClass('open-menu');
@@ -9,6 +15,10 @@ $(document).ready(function(){
     });
     $('.current_user').click(function(){
         $('.user_menu').toggle();
+    });
+    $('.parent_toggle').click(function(){
+        $(this).closest('li').find('ul .inner_link').toggle();
+        $(this).toggleClass('return_menu');
     });
     $('.remove').click(function( event ){
         var message = $(this).data('remove');
@@ -42,7 +52,10 @@ $(document).ready(function(){
         }
     });
 
-
+    $('.current_link').closest('.parent_link').closest('li').find('.inner_link').toggle(true);
+    $('.current_link').closest('.parent_link').closest('li').find('.parent_toggle').toggleClass('return_menu', true);
+    $('.current_link').closest('.child_link').closest('ul').find('.inner_link').toggle(true);
+    $('.current_link').closest('.child_link').closest('ul').closest('li').find('.parent_toggle').toggleClass('return_menu', true);
 
     $('.remove_image').click(function() {
         $.post(ajax_url, {
@@ -62,8 +75,13 @@ const $mapEl = $('#g-map')
 
 var home_path = '';
 function initAutocomplete(response) {
-    if (response.response.length > 0) {
-        $('#g-map').css('height', Math.round(parseInt($('#g-map').css('width')) * 0.5))
+    if (response.response.length > 0 && response.detail != true) {
+        $('#g-map').css('height', Math.round(parseInt($('.events_wrapper').css('width')) * 2) + 20)
+        $('#g-map').css('width', Math.round(parseInt($('.events_wrapper').css('width')) * 2) + 10)
+    } else if ( response.response.length > 0 && response.detail == true ) {
+        $('#g-map').css('height', Math.round(parseInt($('#g-map').css('width')) / 2))
+        $('#g-map').css('left', 0);
+        $('#g-map').css('margin', 0);
     }
     if (typeof google === 'undefined') return
     home_path = response.home_path;

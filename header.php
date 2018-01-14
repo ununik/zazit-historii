@@ -40,7 +40,14 @@ global $frontend;
                         <?php
                     } else {
                         ?>
-                        <div class="current_user"><img src="<?php echo get_avatar_url( array( 'id' => get_current_user_id() ) ) ?>">
+                        <div class="current_user"><img src="<?php
+                            $file = get_user_meta( get_current_user_id(), '_profil_image', true );
+                            if ($file != 0) {
+                                echo wp_get_attachment_image_url($file, 'thumbnail');
+                            } else {
+                                echo get_avatar_url(get_current_user_id());
+                            }
+                            ?>">
                             <span><?php echo $frontend->get_user_name( get_current_user_id() ); ?></span>
                         </div>
                         <div class="user_menu">
@@ -76,8 +83,8 @@ global $frontend;
                 <?php
                 $ages = $frontend->get_all_ages_list();
                 $current_age = '';
-                if (isset($_GET['ages'])) {
-                    $current_age = $_GET['ages'];
+                if (isset($_GET[ __( 'ages', THEME ) ])) {
+                    $current_age = $_GET[ __( 'ages', THEME ) ];
                 }
                 $navigation = $frontend->show_navigation_from_terms( $ages, $current_age );
                 echo $navigation;

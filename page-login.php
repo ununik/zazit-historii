@@ -1,5 +1,6 @@
 <?php
 get_header();
+echo '<div class="content_wrapper">';
 if (!is_user_logged_in()) {
     if(isset($_GET['redirect'])) {
         $redirect_url = $_GET['redirect'];
@@ -23,4 +24,5 @@ if (!is_user_logged_in()) {
     $frontend->custom_registration_function();
     echo '</div>';
 }
+echo '</div>';
 get_footer();

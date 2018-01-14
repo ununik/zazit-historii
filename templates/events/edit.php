@@ -3,6 +3,7 @@ $event_name = '';
 $city = '';
 $from = time();
 $to = time();
+$organisator = '';
 $email = '';
 $tel = '';
 $link = '';
@@ -53,6 +54,7 @@ if (isset($_GET['event'])) {
         $lng = (float) get_post_meta( $my_posts[0]->ID, '_event_place_lng', true );
         $description = get_post_meta( $my_posts[0]->ID, '_event_description', true );
         $visible = get_post_meta( $my_posts[0]->ID, '_event_only_for_registrated_users', true );
+        $organisator = get_post_meta( $my_posts[0]->ID, 'event_organisator', true );
 
         $ages = get_the_terms( $my_posts[0]->ID, '_ages' );
         if ($ages && count($ages) > 0 ) {
@@ -73,6 +75,7 @@ if (isset($_POST['event_save'])) {
     $event_name = htmlspecialchars($_POST['event_name']);
     $file = (int) $_POST['file_upload_data'];
     $city = htmlspecialchars($_POST['event_city']);
+    $organisator = htmlspecialchars($_POST['event_organisator']);
     $from = strtotime($_POST['event_from']);
     $to = strtotime($_POST['event_to']);
     $email = htmlspecialchars($_POST['event_email']);
@@ -175,6 +178,9 @@ if (isset($_POST['event_save'])) {
         if ( ! add_post_meta( $pid, '_event_only_for_registrated_users', $visible, true) ) {
             update_post_meta ( $pid, '_event_only_for_registrated_users', $visible );
         }
+        if ( ! add_post_meta( $pid, 'event_organisator', $organisator, true) ) {
+            update_post_meta ( $pid, 'event_organisator', $organisator );
+        }
 
         $update_post = array(
             'ID' => $pid,
@@ -223,11 +229,17 @@ if ( count($error) > 0 ) {
                 <input type="text" id="event_city" name="event_city" value="<?php echo $city; ?>">
             </p>
             <p>
+                <label for="event_organisator"><?php echo __( 'Organisator', THEME ); ?></label>
+                <input type="text" id="event_organisator" name="event_organisator" value="<?php echo $organisator; ?>">
+            </p>
+            <p>
                 <label for="event_email"><?php echo __( 'Organisator email', THEME ); ?></label>
+                <div class="sublabel"><?php echo __( 'Visible only for registered users', THEME ); ?></div>
                 <input type="email" id="event_email" name="event_email" value="<?php echo $email; ?>">
             </p>
             <p>
                 <label for="event_phone"><?php echo __( 'Organisator phone', THEME ); ?></label>
+                <div class="sublabel"><?php echo __( 'Visible only for registered users', THEME ); ?></div>
                 <input type="text" id="event_phone" name="event_phone" value="<?php echo $tel; ?>">
             </p>
             <p>
@@ -279,8 +291,6 @@ if ( count($error) > 0 ) {
                 }
                 ?>
             </p>
-        </div>
-        <div class="full_page">
             <p>
                 <label><?php echo __('Description', THEME); ?></label>
                 <?php wp_editor($description, 'description', array(
@@ -290,10 +300,12 @@ if ( count($error) > 0 ) {
                 )); ?>
             </p>
         </div>
+        <div class="full_page">
+            <div id="map_picker"></div>
+        </div>
         <input type="hidden" id="lat_value" name="lat_value">
         <input type="hidden" id="lng_value" name="lng_value">
         <input type="hidden" id="location_name_value" name="location_name_value">
-        <div id="map_picker"></div>
 
         <input type="submit" name="event_save" value="<?php echo __( 'Save', THEME ) ?>">
     </form>

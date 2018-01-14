@@ -28,30 +28,31 @@ if ($user_id == get_current_user_id()) {
 get_header();
 global $frontend;
 ?>
-<h3>Profil - <?php echo $frontend->get_user_name( $user_id ); ?></h3>
-<?php if ($current_user_logged) : ?>
-    <a class="edit" href="<?php echo get_home_url().'/edit-profil/'; ?>" title="<?php echo __('Edit profil', THEME)?>"><?php echo __('Edit profil', THEME)?></a>
-<?php endif; ?>
+<div class="content_wrapper">
+    <h3>Profil - <?php echo $frontend->get_user_name( $user_id ); ?></h3>
+    <?php if ($current_user_logged) : ?>
+        <a class="edit" href="<?php echo get_home_url().'/edit-profil/'; ?>" title="<?php echo __('Edit profil', THEME)?>"><?php echo __('Edit profil', THEME)?></a>
+    <?php endif; ?>
 
-<div>
-    <?php
-    $events = $frontend->getAllEventsForUser($user_id);
-    if (count($events->posts) > 0) {
-        echo '<h4>'.__('My events', THEME).'</h4>';
-        echo '<ul>';
-        foreach ($events->posts as $event) {
-            echo '<li>';
-            echo '<a href="'.get_the_permalink($event->ID).'">';
-            echo $frontend->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
-            echo ' - ';
-            echo get_the_title($event->ID);
-            echo '</a>';
-            echo '</li>';
+    <div>
+        <?php
+        $events = $frontend->getAllEventsForUser($user_id);
+        if (count($events->posts) > 0) {
+            echo '<h4>'.__('My events', THEME).'</h4>';
+            echo '<ul>';
+            foreach ($events->posts as $event) {
+                echo '<li>';
+                echo '<a href="'.get_the_permalink($event->ID).'">';
+                echo $frontend->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
+                echo ' - ';
+                echo get_the_title($event->ID);
+                echo '</a>';
+                echo '</li>';
+            }
+            echo '</ul>';
         }
-        echo '</ul>';
-    }
-    ?>
+        ?>
+    </div>
 </div>
-
 <?php
 get_footer();

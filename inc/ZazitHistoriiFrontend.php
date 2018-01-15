@@ -45,6 +45,8 @@ class ZazitHistoriiFrontend extends ZazitHistorii
         add_action('wp_head', array( $this, 'define_constants_for_scripts' ) );
 
         add_filter( 'wp_title', array( $this, 'site_title' ), 10, 2 );
+
+        add_action( 'init', array( $this, 'register_my_menus' ) );
     }
 
     public function import_single_template($single_template)
@@ -644,6 +646,15 @@ class ZazitHistoriiFrontend extends ZazitHistorii
             echo 0;
         }
         die();
+    }
+
+    public function register_my_menus()
+    {
+        register_nav_menus(
+            array(
+                'footer-menu' => __( 'Footer Menu' ),
+            )
+        );
     }
 }
 $frontend = new ZazitHistoriiFrontend();

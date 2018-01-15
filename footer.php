@@ -12,6 +12,16 @@ $my_theme = wp_get_theme()
             </div><!-- END #content -->
         </div><!-- END #main-part -->
         <footer id="main-footer">
+            <div id="footer_menu_wrapper">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'footer-menu',
+                        'container_class' => 'footer_menu_class'
+                    )
+                );
+                ?>
+            </div>
             <div class="footer-wrapper">
                 <div class="subfooter">© zazit-historii.cz <?php echo $my_theme->get( 'Version' ); ?></div>
                 <div class="powered subfooter">Powered by <a href="http://ununik.cz/" target="_blank" title="Martin Přibyl (ununik)">ununik</a></div>

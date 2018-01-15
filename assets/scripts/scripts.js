@@ -2,6 +2,10 @@ $ = jQuery;
 $(document).ready(function(){
     //OPEN MENU
     $('.events_wrapper').css('height', $('.events_wrapper').css('width') );
+
+    $('#footer_menu_wrapper').css('top', '-'+$('#footer_menu_wrapper ul').css('height'));
+    $('#main-footer').css('top', $('#footer_menu_wrapper ul').css('height'));
+
     var heights = $(".half_page").map(function ()
     {
         return $(this).height();

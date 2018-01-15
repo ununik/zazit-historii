@@ -77,7 +77,7 @@ get_header();
         endif;
         ?>
     </div>
-    <div>
+    <div class="themes_meta">
         <?php
         $themes = get_the_terms( get_the_ID(), '_themes' );
         if ($themes) {
@@ -96,7 +96,7 @@ get_header();
         }
         ?>
     </div>
-    <div>
+    <div class="single_event_description">
     <?php echo get_post_meta( get_the_ID(), '_event_description', true ); ?>
     </div>
     <?php

@@ -24,5 +24,6 @@ if (!is_user_logged_in()) {
     $frontend->custom_registration_function();
     echo '</div>';
 }
+echo '<div class="clearfix"></div>';
 echo '</div>';
 get_footer();

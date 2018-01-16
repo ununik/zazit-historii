@@ -680,7 +680,7 @@ background-color: white;
 box-shadow: 1px 1px 5px gray;
 border-radius: 5px;
 box-sizing: border-box;
-padding: 5px 20px 12px 20px;
+padding: 5px 20px 30px 20px;
 }
 .content_wrapper h3{
 margin: 4px 0px;
@@ -696,9 +696,13 @@ font-size: 22px;
     z-index: 600;
     top: 0px;
     left: 0px;
-    text-align: center;
+    box-sizing: border-box;
+    padding-right: 100px;
     width: 100%;
     background-color: #2a2a2a;
+}
+.clearfix{
+    clear: both;
 }
 #footer_menu_wrapper ul {
     display: inline-block;

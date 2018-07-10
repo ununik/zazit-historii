@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-135.89038"
+     inkscape:cx="-650.05802"
      inkscape:cy="653.2243"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g13746"
      showgrid="false"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata9217">
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -118,28 +118,68 @@
           </g>
         </g>
       </g>
-      <text
-         id="text8662"
-         y="257.95529"
-         x="83.271896"
+      <g
+         aria-label="ZAŽÍT"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.4802494px;line-height:1.25;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.57929933"
-         xml:space="preserve"><tspan
+         id="text8662">
+        <path
+           d="m 84.927281,236.46407 h 16.884929 v 2.21678 L 88.223657,255.5082 h 13.919633 v 2.44709 H 84.596204 v -2.21677 L 98.184757,238.91117 H 84.927281 Z"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
-           y="257.95529"
-           x="83.271896"
-           id="tspan8660"
-           sodipodi:role="line">ZAŽÍT</tspan></text>
-      <text
-         id="text8662-3"
-         y="286.58337"
-         x="80.997536"
+           id="path5087" />
+        <path
+           d="m 113.55825,239.32861 -3.94414,10.69523 h 7.90267 z m -1.64099,-2.86454 h 3.29637 l 8.19056,21.49122 h -3.02288 l -1.95767,-5.51315 h -9.6876 l -1.95768,5.51315 h -3.06606 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5089" />
+        <path
+           d="m 125.28989,236.46407 h 16.88493 v 2.21678 l -13.58856,16.82735 h 13.91963 v 2.44709 h -17.54708 v -2.21677 l 13.58855,-16.82735 h -13.25747 z m 7.09656,-2.04404 -3.03727,-3.82897 h 2.00086 l 2.38951,2.56224 2.38951,-2.56224 h 2.00086 l -3.03727,3.82897 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5091" />
+        <path
+           d="m 146.73792,236.46407 h 2.90772 v 21.49122 h -2.90772 z m 2.25996,-5.84422 h 2.66301 l -3.28198,3.80018 h -2.20238 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5093" />
+        <path
+           d="m 152.4526,236.46407 h 18.18044 v 2.4471 h -7.62916 v 19.04412 h -2.92212 v -19.04412 h -7.62916 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5095" />
+      </g>
+      <g
+         aria-label="HISTORII"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.4802494px;line-height:1.25;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.57929933"
-         xml:space="preserve"><tspan
+         id="text8662-3">
+        <path
+           d="m 83.890861,265.09216 h 2.90772 v 8.80952 h 10.565675 v -8.80952 h 2.907724 v 21.49121 H 97.364256 V 276.34878 H 86.798581 v 10.23459 h -2.90772 z"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
-           y="286.58337"
-           x="80.997536"
-           id="tspan8660-5"
-           sodipodi:role="line">HISTORII</tspan></text>
+           id="path5070" />
+        <path
+           d="m 106.05863,265.09216 h 2.90772 v 21.49121 h -2.90772 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5072" />
+        <path
+           d="m 127.63621,265.7975 v 2.83574 q -1.65538,-0.7917 -3.12364,-1.18036 -1.46825,-0.38866 -2.83574,-0.38866 -2.37512,0 -3.67064,0.92126 -1.28112,0.92126 -1.28112,2.61983 0,1.42507 0.84928,2.1592 0.86368,0.71973 3.25319,1.16596 l 1.75615,0.35987 q 3.25319,0.61897 4.79342,2.18799 1.55462,1.55462 1.55462,4.17445 0,3.12364 -2.10162,4.73584 -2.08722,1.6122 -6.13212,1.6122 -1.52583,0 -3.25319,-0.34547 -1.71297,-0.34547 -3.55548,-1.02202 v -2.99409 q 1.77054,0.99323 3.46911,1.49704 1.69857,0.50382 3.33956,0.50382 2.49027,0 3.84337,-0.97884 1.3531,-0.97884 1.3531,-2.79256 0,-1.58342 -0.97884,-2.47588 -0.96444,-0.89247 -3.18122,-1.33871 l -1.77054,-0.34547 q -3.25319,-0.64776 -4.70705,-2.02964 -1.45386,-1.38189 -1.45386,-3.84338 0,-2.85014 2.00086,-4.49113 2.01525,-1.64099 5.54194,-1.64099 1.51144,0 3.08045,0.2735 1.56902,0.2735 3.21001,0.8205 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5074" />
+        <path
+           d="m 130.48636,265.09216 h 18.18044 v 2.44709 h -7.62916 v 19.04412 h -2.92212 v -19.04412 h -7.62916 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5076" />
+        <path
+           d="m 160.21131,267.06422 q -3.16682,0 -5.03813,2.36073 -1.85691,2.36072 -1.85691,6.43441 0,4.05929 1.85691,6.42001 1.87131,2.36073 5.03813,2.36073 3.16682,0 5.00934,-2.36073 1.85691,-2.36072 1.85691,-6.42001 0,-4.07369 -1.85691,-6.43441 -1.84252,-2.36073 -5.00934,-2.36073 z m 0,-2.36072 q 4.51992,0 7.22612,3.03727 2.70619,3.02288 2.70619,8.11859 0,5.08131 -2.70619,8.11858 -2.7062,3.02288 -7.22612,3.02288 -4.53431,0 -7.2549,-3.02288 -2.7062,-3.02288 -2.7062,-8.11858 0,-5.09571 2.7062,-8.11859 2.72059,-3.03727 7.2549,-3.03727 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5078" />
+        <path
+           d="m 184.88374,276.50712 q 0.93566,0.31668 1.81373,1.35309 0.89247,1.03642 1.78494,2.85015 l 2.9509,5.87301 h -3.12364 l -2.74938,-5.51315 q -1.0652,-2.1592 -2.07283,-2.86453 -0.99323,-0.70534 -2.72059,-0.70534 h -3.16682 v 9.08302 h -2.90772 v -21.49121 h 6.56396 q 3.68503,0 5.49876,1.54022 1.81372,1.54023 1.81372,4.64948 0,2.02964 -0.95004,3.36835 -0.93566,1.3387 -2.73499,1.85691 z m -7.28369,-9.02545 v 7.62917 h 3.65624 q 2.10162,0 3.16682,-0.96445 1.0796,-0.97883 1.0796,-2.86453 0,-1.8857 -1.0796,-2.83575 -1.0652,-0.96444 -3.16682,-0.96444 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5080" />
+        <path
+           d="m 195.19031,265.09216 h 2.90772 v 21.49121 h -2.90772 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5082" />
+        <path
+           d="m 203.88469,265.09216 h 2.90772 v 21.49121 h -2.90772 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';fill:#000000;fill-opacity:1;stroke-width:1.57929933"
+           id="path5084" />
+      </g>
     </g>
   </g>
 </svg>

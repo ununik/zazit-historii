@@ -1004,6 +1004,11 @@ RIGHT JOIN (
 
         $date = $this->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
         $city = get_post_meta( $event->ID, '_event_city', true );
+        $organisator = get_post_meta( $event->ID, 'event_organisator', true );
+        $map = get_post_meta( $event->ID, 'event_map_location', true );
+        $lat = get_post_meta( $event->ID, '_event_place_lat', true );
+        $lng = get_post_meta( $event->ID, '_event_place_lng', true );
+
 
         $return .= '<a href="' . get_permalink( $event->ID ) .'" class="events_wrapper" title="' . get_the_title( $event->ID ) . ' (' . $date . ')">';
         $return .= '<div class="event-card" ontouchstart="this.classList.toggle(\'hover\');">';
@@ -1017,7 +1022,36 @@ RIGHT JOIN (
         }
         $return .= '</div>';
         $return .= '<div class="back">';
-        $return .= 'back';
+        $return .= '<h4>' . get_the_title( $event->ID ) . '</h4>';
+        $return .= '<div class="archive_events_back_meta">';
+
+        $return .= '<div class="single_event_date">';
+        $return .= '<div class="icon"></div>';
+        $return .= $date;
+        $return .= '</div>';
+
+        if ($city) {
+            $return .= '<div class="single_event_place">';
+            $return .= '<div class="icon"></div>';
+            $return .= $city;
+            $return .= '</div>';
+        }
+
+        if ($map && $lat && $lng) {
+            $return .= '<div class="single_event_gps">';
+            $return .= '<div class="icon"></div>';
+            $return .= 'N:'.round($lat, 5) .', E:'.round($lat, 5);
+            $return .= '</div>';
+        }
+
+        if ( $organisator && $organisator != '') :
+            $return .= '<div class="single_event_organisator">';
+            $return .= '<div class="icon"></div>';
+            $return .= $organisator;
+            $return .= '</div>';
+        endif;
+
+        $return .= '</div>';
         $return .= '</div>';
         $return .= '</div>';
         $return .= '</div>';

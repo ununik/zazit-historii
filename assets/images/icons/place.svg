@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 52.916666 52.916669"
+   version="1.1"
+   id="svg5922"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="place.svg"
+   inkscape:export-filename="D:\podnikani\rekonstrukce_bitev\dance.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs5916" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.0000002"
+     inkscape:cx="137.22223"
+     inkscape:cy="86.919194"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="43.591657,39.756342"
+       orientation="0,1"
+       id="guide4492"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="53.320267,13.37684"
+       orientation="0,1"
+       id="guide4494"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="13.18975,48.455965"
+       orientation="1,0"
+       id="guide4496"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="39.75634,59.868374"
+       orientation="1,0"
+       id="guide4498"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5919">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-244.08332)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.96785712;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect4531-0"
+       width="52.916668"
+       height="52.916668"
+       x="2.5884876e-007"
+       y="244.08333"
+       rx="6.4285712" />
+    <path
+       style="opacity:1;vector-effect:none;fill:#fdfd00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5.74244881;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       d="m 26.458335,257.33265 c -4.904561,0 -8.880602,3.97603 -8.880595,8.88059 0,4.90457 6.405013,15.06185 8.880595,17.53743 2.509908,-2.50991 8.880594,-12.63286 8.880594,-17.53743 7e-6,-4.90456 -3.976032,-8.88059 -8.880594,-8.88059 z m 0,3.78021 c 2.746296,2e-5 4.972604,2.22633 4.972626,4.97263 -3e-5,2.74629 -2.226335,4.97259 -4.972626,4.97261 -2.74629,-2e-5 -4.972594,-2.22632 -4.972624,-4.97261 2.2e-5,-2.7463 2.226329,-4.97261 4.972624,-4.97263 z"
+       id="path4500"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scccsccccc" />
+  </g>
+</svg>

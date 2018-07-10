@@ -317,6 +317,12 @@ body{
 .single_event_tel .icon{
     background-image: url(assets/images/icons/tel.svg);
 }
+.single_event_place .icon{
+    background-image: url(assets/images/icons/place.svg);
+}
+.single_event_gps .icon{
+    background-image: url(assets/images/icons/gps.svg);
+}
 .edit{
     background-image: url(assets/images/icons/edit.svg);
     text-indent: 100%;
@@ -387,12 +393,8 @@ body{
     }
 }
 .event-card{
-    border: 1px solid #e8e8e8;
     width: 100%;
     height: 100%;
-}
-.event-card:hover{
-    box-shadow: 0px 1px 6px silver;
 }
 .events_wrapper h4{
     margin: 3px 0px 0px 0px;
@@ -491,8 +493,9 @@ body{
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
-
+    border: 1px solid #e8e8e8;
     position: relative;
+    height: 100%;
 }
 
 /* hide back of pane during swap */
@@ -509,9 +512,28 @@ body{
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
+
 }
 
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
+}
+.archive_events_back_meta{
+    text-align: left;
+    font-size: 12px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+.archive_events_back_meta .icon{
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    margin: 4px;
 }

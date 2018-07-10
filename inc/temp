@@ -1,0 +1,67 @@
+//
+/*    <div class="event_thumbnail" style="<?php if ($thumbnail != '') { ?>background-image: url(<?php echo $thumbnail; ?>); <?php } ?>">*/
+//        <div class="age_points">
+//            <?php
+//            if ($ageTerms) {
+//                foreach ($ageTerms as $ageTerm) {
+//                    echo '<div style="background-color: '.get_term_meta( $ageTerm->term_id, '_ages_bgcolor', true ).'" class="age_point" title="'.$ageTerm->name.'"></div>';
+//                }
+//            }
+//            ?>
+<!--        </div>-->
+<!--        <div class="theme_points">-->
+<!--            --><?php
+//            if ($themeTerms) {
+//                foreach ($themeTerms as $themeTerm) {
+//                    $attachment = wp_get_attachment_image_src(get_term_meta( $themeTerm->term_id, '_themes_image', true ));
+//
+//                    $url = '';
+//                    if (isset($attachment[0])) {
+//                        $url = $attachment[0];
+//                    }
+//                    echo '<div style="background-image: url('.$url.')" class="theme_point" title="'.$themeTerm->name.'"></div>';
+//                }
+//            }
+//            ?>
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div-->
+<!--        --><?php
+//        /*$color = get_term_meta( $age->term_id, '_ages_color', true );
+//        $parent_color = get_term_meta( $age->parent, '_ages_color', true );*/
+//        /* if( $color && $color != '') {
+//             $color = $color;
+//         } else if($parent_color && $parent_color != '') {
+//             $color = $parent_color;
+//         } else {
+//             $color = $frontend->get_default_event_color();
+//
+//         }*/
+//        $color = $frontend->get_default_event_color();
+//
+//        $bgcolor = $frontend->get_default_event_bgcolor();
+//
+//        /*$bgcolor = get_term_meta( $age->term_id, '_ages_bgcolor', true );
+//        $parent_bgcolor = get_term_meta( $age->parent, '_ages_bgcolor', true );
+//        if( $bgcolor && $bgcolor != '') {
+//            $bgcolor = $bgcolor;
+//        } else if($parent_bgcolor && $parent_bgcolor != '') {
+//            $bgcolor = $parent_bgcolor;
+//        } else {
+//            $bgcolor = $frontend->get_default_event_bgcolor();
+//
+//        }*/
+//
+//        echo 'style="color: '.$color.'; background-color: '.$bgcolor.'"';
+//        ?>
+<!--            class="events_data --><?php //if ( $city && $city != '' ) { echo 'events_data_city'; }?><!--"">-->
+<!---->
+<!--    <h3 class="events_title">--><?php //echo get_the_title( $event->ID ) ?><!--</h3>-->
+<!---->
+<!--    <div class="events_meta --><?php //if ( $city && $city != '' ) { echo 'events_meta_city'; }?><!--">--><?php
+//        if ( $city && $city != '' ) {
+//            echo '<div class="events_city">'.$city.'</div>';
+//        }
+//        echo $frontend->get_date_from_timestamps((int) get_post_meta( $event->ID, '_event_date_from', true ), (int) get_post_meta( $event->ID, '_event_date_to', true ));
+//        ?><!--</div>-->
+<!--    </div>-->

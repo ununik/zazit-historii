@@ -1,6 +1,6 @@
 $ = jQuery;
 $(document).ready(function(){
-    //OPEN MENU
+        //OPEN MENU
     $('.events_wrapper').css('height', $('.events_wrapper').css('width') );
 
     $('#footer_menu_wrapper').css('top', '-'+$('#footer_menu_wrapper ul').css('height'));
@@ -21,7 +21,16 @@ $(document).ready(function(){
         $('.user_menu').toggle();
     });
     $('.parent_toggle').click(function(){
-        $(this).closest('li').find('ul .inner_link').toggle();
+        var toggleInfo = !($(this).hasClass( "return_menu" ))
+
+        if (toggleInfo) {
+            $(this).closest('li').find('ul .inner_link').first().toggle(true);
+            $(this).closest('li').find('ul .parent_toggle').first().toggle(true);
+        } else {
+            $(this).closest('li').find('ul .inner_link').toggle(false);
+            $(this).closest('li').find('ul .parent_toggle').toggle(false);
+            $(this).closest('li').find('.return_menu').removeClass('return_menu');
+        }
         $(this).toggleClass('return_menu');
     });
     $('.remove').click(function( event ){
@@ -32,6 +41,18 @@ $(document).ready(function(){
             event.preventDefault()
         }
     });
+
+    $('.navigation_title').click( function (){
+
+        $('.navigation_title_toggle').toggleClass('return_menu');
+        if ($(this).data('open') == 'off') {
+            $(this).data('open', 'on')
+            $('#navigation-panel').css('height', 'auto');
+        } else {
+            $(this).data('open', 'off');
+            $('#navigation-panel').css('height', '40px');
+        }
+    })
 
     $('.partner-wrapper').click(function () {
         var id = $(this).data('id')
@@ -45,6 +66,8 @@ $(document).ready(function(){
         jQuery.post(ajax_url, data, function(response) {});
     })
 
+
+
     $(window).scroll(function(){
         if($(this).scrollTop() >= 10) {
             $('.small_icon').css('left', '1px');
@@ -56,10 +79,11 @@ $(document).ready(function(){
         }
     });
 
-    $('.current_link').closest('.parent_link').closest('li').find('.inner_link').toggle(true);
-    $('.current_link').closest('.parent_link').closest('li').find('.parent_toggle').toggleClass('return_menu', true);
-    $('.current_link').closest('.child_link').closest('ul').find('.inner_link').toggle(true);
-    $('.current_link').closest('.child_link').closest('ul').closest('li').find('.parent_toggle').toggleClass('return_menu', true);
+    $('.current_link').closest('.main-parent').find('.inner_link').toggle(true);
+    $('.current_link').closest('.main-parent').find('.parent_toggle').toggle(true);
+    $('.current_link').closest('.main-parent').find('.parent_toggle').toggleClass('return_menu', true);
+    $('.current_link').closest('.term-navigation').find('.term-navigation').find('.inner_link').toggle(true);
+    $('.current_link').closest('.term-navigation').find('.term-navigation').find('.parent_toggle').toggleClass('return_menu', true);
 
     $('.remove_image').click(function() {
         $.post(ajax_url, {
@@ -73,20 +97,47 @@ $(document).ready(function(){
         })
         $('#file_upload_data').val('');
     })
+
+    function show_map_picker() {
+        if ($('.map_location').prop('checked') == true ) {
+            $('#map_picker').toggle(true);
+
+            $('#map_picker').locationpicker(
+                {
+                    location: {
+                        latitude: $('#lat_value').val(),
+                        longitude: $('#lng_value').val(),
+                    },
+                    zoom: 7,
+                    inputBinding: {
+                        latitudeInput: $('#lat_value'),
+                        longitudeInput: $('#lng_value'),
+                        locationNameInput: $('#location_name_value'),
+                    },
+                    enableAutocomplete: true,
+                    enableAutocompleteBlur: true,
+                    markerIcon: $('#map_picker').data('maker'),
+                }
+            );
+        } else {
+            $('#map_picker').toggle(false);
+        }
+    }
+
+    show_map_picker();
+    $('.map_location').click(function() {
+        show_map_picker();
+    })
 });
 
 const $mapEl = $('#g-map')
 
 var home_path = '';
 function initAutocomplete(response) {
-    if (response.response.length > 0 && response.detail != true) {
-        $('#g-map').css('height', Math.round(parseInt($('.events_wrapper').css('width')) * 2) + 20)
-        $('#g-map').css('width', Math.round(parseInt($('.events_wrapper').css('width')) * 2) + 10)
-    } else if ( response.response.length > 0 && response.detail == true ) {
-        $('#g-map').css('height', Math.round(parseInt($('#g-map').css('width')) / 2))
-        $('#g-map').css('left', 0);
-        $('#g-map').css('margin', 0);
-    }
+    $('#g-map').css('height', Math.round(parseInt($('#g-map').css('width')) / 2))
+    $('#g-map').css('left', 0);
+    $('#g-map').css('margin', 0);
+
     if (typeof google === 'undefined') return
     home_path = response.home_path;
     
@@ -112,8 +163,10 @@ function initAutocomplete(response) {
              if (item.city != '') {
                 contentString += '<div class="map_city">'+item.city+'</div>'
              }
-            contentString += '<div class="map_date">'+item.date+'</div>'+
-            '</a>'+
+             if (item.date != '') {
+                 contentString += '<div class="map_date">' + item.date + '</div>'
+             }
+            contentString += '</a>'+
             '</div>';
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
@@ -206,3 +259,82 @@ function initAutocomplete(response) {
         console.warn(e)
     }          
 }
+
+//////////////////////////////////////////// NEW DESIGN
+
+$(document).ready(function () {
+    // calculate element sizes here is accurate because the entire page has been loaded
+    $(window).load(function(){
+        $('.next_event_page').click(function( event ){
+            $('.loader').toggleClass('loader-hide', false);
+            var data = {
+                action: 'next_event_page',
+                page: $(this).data('page'),
+                age: $(this).data('ages'),
+                search: $(this).data('search'),
+            }
+            jQuery.getJSON(ajax_url, data, function(response) {
+                if (response.next_page == false) {
+                    $('.next_event_page').toggle(false);
+                }
+
+                $('.events-rows').append(response.content);
+                $('.loader').toggleClass('loader-hide', true);
+                next_page = $('.next_event_page').data('page') + 1;
+                $('.next_event_page').data('page', next_page);
+                fixEventsCards();
+                fixFooter();
+            });
+        });
+
+
+        $("#show_hide_map").click(function () {
+            $('.map').toggleClass('map-hide')
+            fixFooter();
+        })
+
+        function fixFooter(){
+            $('#content').css('margin-bottom', $('#main-footer').height()+'px')
+            var windowHeight = $(window).height();
+            var bodyHeight = $('body').height();
+            var footerBottom = $('#main-footer').position().top + $('#main-footer').outerHeight(true);
+
+            if(footerBottom <= windowHeight){
+                // slam the footer to the bottom
+                $('#main-footer').css("position", "absolute");
+                $('#main-footer').css("left", 0);
+                $('#main-footer').css("right", 0);
+                $('#main-footer').css("bottom", 0);
+            } else {
+                $('#main-footer').css("position", "relative");
+                $('#main-footer').css("left", 0);
+                $('#main-footer').css("right", 0);
+                $('#main-footer').css("bottom", 0);
+            }
+        }
+
+        function fixEventsCards() {
+            var width = $('.archive_events_thumbnail').width();
+            $('.archive_events_thumbnail').css('height', parseInt(width*2/3)+'px');
+            $('.events_wrapper').css('height', $('.events_wrapper').width()+'px');
+        }
+
+        fixEventsCards();
+        fixFooter();
+
+        $(window).resize(function(){
+            fixEventsCards();
+            fixFooter();
+        });
+
+        $('.closebtn').click(function () {
+            var type = $(this).data('type');
+            var id = $(this).data('id');
+            if(type == 'cookies') {
+                document.cookie = "alert-"+id+"=AGREE; path=/";
+            }
+
+            $(this).closest('.alert').toggle(false);
+        })
+    });
+});

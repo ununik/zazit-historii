@@ -16,9 +16,22 @@ class ZazitHistorii
         /* END Register menu */
 
         /* Register taxonomies */
+        add_action( 'init', array( $this, 'register_countries_taxonomy' ) );
         add_action( 'init', array( $this, 'register_ages_taxonomy' ) );
         add_action( 'init', array( $this, 'register_themes_taxonomy' ) );
+        add_action( 'init', array( $this, 'register_types_taxonomy' ) );
         /* END Register taxonomies */
+    }
+
+    public function register_countries_taxonomy()
+    {
+        $args = [
+            'label' => __( 'Countries', THEME ),
+            'rewrite' => array( 'slug' => __( 'country', THEME ) ),
+            'hierarchical' => true,
+        ];
+
+        register_cuztom_taxonomy( '_countries', '_events', $args );
     }
 
     public function register_ages_taxonomy()
@@ -33,7 +46,8 @@ class ZazitHistorii
     }
 
     public function register_themes_taxonomy()
-    {$args = [
+    {
+        $args = [
         'label' => __( 'Themes', THEME ),
         'rewrite' => array( 'slug' => __( 'themes', THEME ) ),
         'hierarchical' => true,
@@ -41,5 +55,16 @@ class ZazitHistorii
 
         register_cuztom_taxonomy( '_themes', '_events', $args );
 
+    }
+
+    public function register_types_taxonomy()
+    {
+        $args = [
+            'label' => __( 'Types', THEME ),
+            'rewrite' => array( 'slug' => __( 'types', THEME ) ),
+            'hierarchical' => true,
+        ];
+
+        register_cuztom_taxonomy( '_types', '_places', $args );
     }
 }

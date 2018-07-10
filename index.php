@@ -12,11 +12,13 @@
 get_header();
 global $frontend;
 echo '<div class="content_wrapper">';
-echo '<h3>'.get_the_title().'</h3>';
+echo '<h3 class="headline">'.get_the_title().'</h3>';
 
 if ( have_posts() ) :
     while ( have_posts() ) : the_post();
-        echo '<div>'.get_the_content().'</div>';
+        echo '<div>';
+        the_content();
+        echo '</div>';
         echo $frontend->show_ad();
     endwhile;
 endif;

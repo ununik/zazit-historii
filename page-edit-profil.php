@@ -63,7 +63,7 @@ global $frontend;
     </div>
     <div class="login_form half_page">
     </div>
-    <input type="submit" value="<?php echo __('Save', THEME);?>" name="profil_save">
+    <input type="submit" class="clearfix" value="<?php echo __('Save', THEME);?>" name="profil_save">
 </form>
 </div>
 <?php

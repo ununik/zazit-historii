@@ -29,12 +29,22 @@ get_header();
 global $frontend;
 ?>
 <div class="content_wrapper">
-    <h3>Profil - <?php echo $frontend->get_user_name( $user_id ); ?></h3>
-    <?php if ($current_user_logged) : ?>
-        <a class="edit" href="<?php echo get_home_url().'/edit-profil/'; ?>" title="<?php echo __('Edit profil', THEME)?>"><?php echo __('Edit profil', THEME)?></a>
-    <?php endif; ?>
-
-    <div>
+    <div class="profile_header">
+        <div class="profil_image_wrapper">
+            <img src="<?php
+            $file = get_user_meta( $user_id, '_profil_image', true );
+            if ($file != 0) {
+                echo wp_get_attachment_image_url($file, 'thumbnail');
+            } else {
+                echo get_avatar_url($user_id);
+            }
+            ?>"></div>
+        <h3 class="profil_name"><?php echo $frontend->get_user_name( $user_id ); ?></h3>
+        <?php if ($current_user_logged) : ?>
+            <a class="edit" href="<?php echo get_home_url().'/edit-profil/'; ?>" title="<?php echo __('Edit profil', THEME)?>"><?php echo __('Edit profil', THEME)?></a>
+        <?php endif; ?>
+    </div>
+    <div class="clearfix">
         <?php
         $events = $frontend->getAllEventsForUser($user_id);
         if (count($events->posts) > 0) {

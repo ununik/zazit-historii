@@ -2,7 +2,7 @@
 $event_name = '';
 $city = '';
 $from = time();
-$to = time();
+$to = 0;
 $organisator = '';
 $email = '';
 $tel = '';
@@ -16,6 +16,7 @@ $ages_terms = [];
 $themes_terms = [];
 $error = [];
 $file = 0;
+$map_location = 'off';
 
 $new_event = true;
 
@@ -55,6 +56,7 @@ if (isset($_GET['event'])) {
         $description = get_post_meta( $my_posts[0]->ID, '_event_description', true );
         $visible = get_post_meta( $my_posts[0]->ID, '_event_only_for_registrated_users', true );
         $organisator = get_post_meta( $my_posts[0]->ID, 'event_organisator', true );
+        $map_location = get_post_meta( $my_posts[0]->ID, 'event_map_location', true );
 
         $ages = get_the_terms( $my_posts[0]->ID, '_ages' );
         if ($ages && count($ages) > 0 ) {
@@ -83,6 +85,7 @@ if (isset($_POST['event_save'])) {
     $link = htmlspecialchars($_POST['event_link']);
     $lat = (float) htmlspecialchars($_POST['lat_value']);
     $lng = (float) htmlspecialchars($_POST['lng_value']);
+    $map_location = htmlspecialchars($_POST['map_location']);
     $description = $_POST['description'];
     if (isset($_POST['visible'])) {
         $visible = $_POST['visible'];
@@ -91,6 +94,7 @@ if (isset($_POST['event_save'])) {
     }
 
     if (isset($_POST['ages'])) {
+        $ages_terms = [];
         foreach ($_POST['ages'] as $age) {
             $ageTerm = get_term_by('slug', $age, '_ages');
             $ages_terms[] = $ageTerm->term_id;
@@ -98,6 +102,7 @@ if (isset($_POST['event_save'])) {
     }
 
     if (isset($_POST['themes'])) {
+        $themes_terms = [];
         foreach ($_POST['themes'] as $theme) {
             $themeTerm = get_term_by('slug', $theme, '_themes');
             $themes_terms[] = $themeTerm->term_id;
@@ -181,6 +186,9 @@ if (isset($_POST['event_save'])) {
         if ( ! add_post_meta( $pid, 'event_organisator', $organisator, true) ) {
             update_post_meta ( $pid, 'event_organisator', $organisator );
         }
+        if ( ! add_post_meta( $pid, 'event_map_location', $map_location, true) ) {
+            update_post_meta ( $pid, 'event_map_location', $map_location );
+        }
 
         $update_post = array(
             'ID' => $pid,
@@ -197,6 +205,8 @@ if (isset($_POST['event_save'])) {
     }
 }
 global $frontend;
+
+echo '<div><a href="'.get_the_permalink( 64 ).'" target="_blank">'.__('How to create a new event.', THEME).'</a></div>';
 
 if ( count($error) > 0 ) {
     echo '<ul class="errors">';
@@ -222,7 +232,7 @@ if ( count($error) > 0 ) {
             </p>
             <p>
                 <label for="event_to"><?php echo __( 'Date of end', THEME ); ?></label>
-                <input type="text" id="event_to" class="date_picker" name="event_to" value="<?php echo date('j.n.Y', $to); ?>">
+                <input type="text" id="event_to" class="date_picker" name="event_to" value="<?php if($to != 0) {echo date('j.n.Y', $to);} ?>">
             </p>
             <p>
                 <label for="event_city"><?php echo __( 'City', THEME ); ?></label>
@@ -294,20 +304,24 @@ if ( count($error) > 0 ) {
             <p>
                 <label><?php echo __('Description', THEME); ?></label>
                 <?php wp_editor($description, 'description', array(
-                    'wpautop' => false,
-                    'teeny' => true,
+                    'wpautop' => true,
+                    'teeny' => false,
                     'media_buttons' => false,
                 )); ?>
             </p>
         </div>
         <div class="full_page">
-            <div id="map_picker"></div>
+            <p>
+                <label><?php echo __('Add map location', THEME); ?></label>
+                <input type="checkbox" class="map_location" name="map_location" <?php if ($map_location == 'on') { echo 'checked';} ?>>
+            </p>
+            <div id="map_picker" data-maker="<?php echo get_template_directory_uri() . '/assets/images/icons/map_sword.svg' ?>"></div>
         </div>
-        <input type="hidden" id="lat_value" name="lat_value">
-        <input type="hidden" id="lng_value" name="lng_value">
+        <input type="hidden" id="lat_value" name="lat_value" value="<?php echo $lat; ?>">
+        <input type="hidden" id="lng_value" name="lng_value"  value="<?php echo $lng; ?>">
         <input type="hidden" id="location_name_value" name="location_name_value">
 
-        <input type="submit" name="event_save" value="<?php echo __( 'Save', THEME ) ?>">
+        <input type="submit" class="button-primary" name="event_save" value="<?php echo __( 'Save', THEME ) ?>">
     </form>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -316,21 +330,7 @@ if ( count($error) > 0 ) {
             });
         });
         $ = jQuery;
-        $('#map_picker').locationpicker(
-            {
-                location: {
-                    latitude: <?php echo $lat; ?>,
-                    longitude: <?php echo $lng; ?>
-                },
-                zoom: 7,
-                inputBinding: {
-                    latitudeInput: $('#lat_value'),
-                    longitudeInput: $('#lng_value'),
-                    locationNameInput: $('#location_name_value'),
-                },
-                markerIcon: '<?php echo get_template_directory_uri() . '/assets/images/icons/map_sword.svg' ?>',
-            }
-        );
+        
 
         var myDropzone = new Dropzone("#file_upload", {
             acceptedFiles: 'image/*',

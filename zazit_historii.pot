@@ -1,333 +1,347 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: zazit_historii2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 11:48+0100\n"
-"PO-Revision-Date: 2018-01-18 11:48+0100\n"
+"POT-Creation-Date: 2018-06-07 09:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ununik <ununik@gmail.com>\n"
 "Language-Team: Czech\n"
-"Language: cs_CZ\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
-"2;\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-0: ."
 
-#: header.php:45
+#: header.php:46
 msgid "Login / Registration"
-msgstr "Login / Registrace"
+msgstr ""
 
-#: header.php:61 templates/events/single.php:118
+#: header.php:62 templates/events/single.php:132
 msgid "Profil"
-msgstr "Profil"
+msgstr ""
 
-#: header.php:62 inc/ZazitHistoriiBackend.php:63
+#: header.php:63 inc/ZazitHistoriiBackend.php:63
 msgid "Add new event"
-msgstr "Přidat novou událost"
+msgstr ""
 
-#: header.php:64
+#: header.php:65
 msgid "Logout"
-msgstr "Odhlásit"
+msgstr ""
 
-#: header.php:71
+#: header.php:72
 msgid "Search events..."
-msgstr "Hledat událost..."
+msgstr ""
 
-#: header.php:71 templates/events/archive.php:16
-#: templates/events/archive.php:21 templates/events/archive.php:28
-#: templates/events/archive.php:31 templates/events/archive.php:137
+#: header.php:72 templates/events/archive.php:19
+#: templates/events/archive.php:20 templates/events/archive.php:25
+#: templates/events/archive.php:32 templates/events/archive.php:35
+#: templates/events/archive.php:159
 msgid "search"
-msgstr "hledat"
+msgstr ""
 
-#: header.php:90 inc/ZazitHistorii.php:27 templates/events/edit.php:266
+#: header.php:91 inc/ZazitHistorii.php:27 templates/events/edit.php:272
 msgid "Ages"
-msgstr "Období"
+msgstr ""
 
-#: header.php:94 header.php:95 inc/ZazitHistorii.php:28
-#: inc/ZazitHistoriiFrontend.php:491 templates/events/archive.php:10
-#: templates/events/archive.php:14 templates/events/archive.php:35
-#: templates/events/archive.php:36 templates/events/archive.php:134
+#: header.php:95 header.php:96 header.php:114 header.php:115
+#: inc/ZazitHistorii.php:28 inc/ZazitHistoriiFrontend.php:510
+#: templates/events/archive.php:12 templates/events/archive.php:13
+#: templates/events/archive.php:17 templates/events/archive.php:39
+#: templates/events/archive.php:40 templates/events/archive.php:156
 msgid "ages"
-msgstr "obdobi"
+msgstr ""
 
-#: header.php:107
+#: header.php:101
+msgid "Themes menu"
+msgstr ""
+
+#: header.php:127
 msgid "Do you want to add a missing event?"
-msgstr "Chybí ti tu nějaká událost?"
+msgstr ""
 
 #: inc/ZazitHistorii.php:14
 msgid "Main Menu"
-msgstr "Hlavní menu"
+msgstr ""
 
-#: inc/ZazitHistorii.php:37 templates/events/edit.php:277
+#: inc/ZazitHistorii.php:37 templates/events/edit.php:283
 msgid "Themes"
-msgstr "Typy události"
+msgstr ""
 
 #: inc/ZazitHistorii.php:38
 msgid "themes"
-msgstr "typy"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:59 inc/ZazitHistoriiBackend.php:61
 msgid "Events"
-msgstr "Události"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:60
 msgid "Event"
-msgstr "Událost"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:62 inc/ZazitHistoriiBackend.php:201
+#: inc/ZazitHistoriiBackend.php:62 inc/ZazitHistoriiBackend.php:206
 msgid "Add new"
-msgstr "Přidat novou"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:64 page-new-event.php:12
 msgid "New event"
-msgstr "Nová událost"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:65
 msgid "Edit event"
-msgstr "Úprava události"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:66
 msgid "View event"
-msgstr "Prohlédnout si událost"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:67
 msgid "All events"
-msgstr "Všechny události"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:68
 msgid "Search for event"
-msgstr "Hledat událost"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:69 templates/events/archive.php:122
+#: inc/ZazitHistoriiBackend.php:69 templates/events/archive.php:144
 msgid "No event found"
-msgstr "Nebyla nalezena žádná událost"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:70
 msgid "No event found in the trash"
-msgstr "Nebyla nalezena žádná událost"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:71 templates/events/edit.php:253
+#: inc/ZazitHistoriiBackend.php:71 templates/events/edit.php:259
 msgid "Event image"
-msgstr "Obrázek události"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:72
 msgid "Set event image"
-msgstr "Nastavit události obrázek"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:73
 msgid "Remove event image"
-msgstr "Odstranit obrázek"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:74
 msgid "Use event image"
-msgstr "Použít obrázek"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:82 inc/ZazitHistoriiFrontend.php:485
+#: inc/ZazitHistoriiBackend.php:82 inc/ZazitHistoriiFrontend.php:504
 msgid "events"
-msgstr "udalosti"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:95 inc/ZazitHistoriiBackend.php:230
+#: inc/ZazitHistoriiBackend.php:95 inc/ZazitHistoriiBackend.php:235
 msgid "Detail"
-msgstr "Detail"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:103 inc/ZazitHistoriiBackend.php:238
+#: inc/ZazitHistoriiBackend.php:103 inc/ZazitHistoriiBackend.php:243
 msgid "Basic informations"
-msgstr "Základní informace"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:108
 msgid "Visible only for registrated users"
-msgstr "Viditelné pouze pro registrované uživatele"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:113
 msgid "Date from"
-msgstr "Datum začátku"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:121
 msgid "Date to"
-msgstr "Datum konce"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:129
 msgid "Place"
-msgstr "Místo"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:134 templates/events/edit.php:230
+#: inc/ZazitHistoriiBackend.php:134 templates/events/edit.php:236
 msgid "City"
-msgstr "Město"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:139
 msgid "Lat"
-msgstr "Lat"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:144
 msgid "Lng"
-msgstr "Lng"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:150
+#: inc/ZazitHistoriiBackend.php:149
+msgid "Map"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:155
 msgid "Contact"
-msgstr "Kontakt"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:155 templates/events/edit.php:234
+#: inc/ZazitHistoriiBackend.php:160 templates/events/edit.php:240
 msgid "Organisator"
-msgstr "Organizátor"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:160 inc/ZazitHistoriiFrontend.php:317
+#: inc/ZazitHistoriiBackend.php:165 inc/ZazitHistoriiFrontend.php:336
 #: page-edit-profil.php:60
 msgid "Email"
-msgstr "Email"
-
-#: inc/ZazitHistoriiBackend.php:165
-msgid "Phone"
-msgstr "Telefon"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:170
+msgid "Phone"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:175
 msgid "Link URL"
-msgstr "URL adresa"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:176 inc/ZazitHistoriiBackend.php:181
-#: templates/events/edit.php:297
+#: inc/ZazitHistoriiBackend.php:181 inc/ZazitHistoriiBackend.php:186
+#: templates/events/edit.php:303
 msgid "Description"
-msgstr "Popis"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:198 inc/ZazitHistoriiBackend.php:200
+#: inc/ZazitHistoriiBackend.php:203 inc/ZazitHistoriiBackend.php:205
 msgid "Ads"
-msgstr "Reklamy"
-
-#: inc/ZazitHistoriiBackend.php:199
-msgid "Ad"
-msgstr "Reklama"
-
-#: inc/ZazitHistoriiBackend.php:202
-msgid "Add new ad"
-msgstr "Přidat novou reklamu"
-
-#: inc/ZazitHistoriiBackend.php:203
-msgid "New ad"
-msgstr "Nová reklama"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:204
-msgid "Edit ad"
-msgstr "Úprava reklamy"
-
-#: inc/ZazitHistoriiBackend.php:205
-msgid "View ad"
-msgstr "Prohlédnout si reklamu"
-
-#: inc/ZazitHistoriiBackend.php:206
-msgid "All ads"
-msgstr "Všechny reklamy"
+msgid "Ad"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:207
-msgid "Search for ad"
-msgstr "Hledat reklamu"
+msgid "Add new ad"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:208
-msgid "No ad found"
-msgstr "Nebyla nalezena žádná reklama"
+msgid "New ad"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:209
-msgid "No ad found in the trash"
-msgstr "Nebyla nalezena žádná reklama"
+msgid "Edit ad"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:217
+#: inc/ZazitHistoriiBackend.php:210
+msgid "View ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:211
+msgid "All ads"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:212
+msgid "Search for ad"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:213
+msgid "No ad found"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:214
+msgid "No ad found in the trash"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:222
 msgid "ads"
 msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:243
-msgid "Link"
-msgstr "Odkaz"
-
 #: inc/ZazitHistoriiBackend.php:248
-msgid "Views"
-msgstr "Shlédnutí"
+msgid "Link"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:253
-msgid "Clicks"
-msgstr "Kliknutí"
+msgid "Views"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:271
-msgid "Default image"
-msgstr "Základní obrázek"
+#: inc/ZazitHistoriiBackend.php:258
+msgid "Clicks"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:276
+msgid "Age description"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:281
+msgid "Default image"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:286
 msgid "Short name"
-msgstr "Krátký název"
-
-#: inc/ZazitHistoriiBackend.php:277
-msgid "This short name appears in the cards image."
-msgstr "Tento krátký název se objevuje v kartách událosit"
-
-#: inc/ZazitHistoriiBackend.php:282
-msgid "Year of beginning"
-msgstr "Rok začátku"
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:287
-msgid "Text color"
-msgstr "Barva textu"
+msgid "This short name appears in the cards image."
+msgstr ""
 
 #: inc/ZazitHistoriiBackend.php:292
+msgid "Year of beginning"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:297
+msgid "Text color"
+msgstr ""
+
+#: inc/ZazitHistoriiBackend.php:302
 msgid "Background color"
-msgstr "Barva pozadí"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:306
+#: inc/ZazitHistoriiBackend.php:316
 msgid "Image"
-msgstr "Obrázek"
+msgstr ""
 
-#: inc/ZazitHistoriiBackend.php:368 page-edit-profil.php:38
+#: inc/ZazitHistoriiBackend.php:378 page-edit-profil.php:38
 msgid "Profil image"
-msgstr "Profilový obrázek"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:312
+#: inc/ZazitHistoriiFrontend.php:331
 msgid "Username"
-msgstr "Uživatelské jméno (login)"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:322 page-login.php:16
+#: inc/ZazitHistoriiFrontend.php:341 page-login.php:16
 msgid "Password"
-msgstr "Heslo"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:328
+#: inc/ZazitHistoriiFrontend.php:347
 #, php-format
 msgid "Do you agree with our <a href=\"%s\" target=\"_blank\">rules</a>?"
-msgstr "Souhlasíte s našimi <a href=\"%s\" target=\"_blank\">pravidly</a>?"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:415
+#: inc/ZazitHistoriiFrontend.php:434
 msgid "Required form field is missing"
-msgstr "Chybí povinné pole"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:419
+#: inc/ZazitHistoriiFrontend.php:438
 msgid "Username too short. At least 4 characters is required"
-msgstr "Přihlašovací jméno je příliš krátké. Musí obsahovat alespoň 4 znaky"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:423
+#: inc/ZazitHistoriiFrontend.php:442
 msgid "Sorry, that username already exists!"
-msgstr "Toto uživatelské jméno je obsazené."
-
-#: inc/ZazitHistoriiFrontend.php:427
-msgid "Sorry, the username you entered is not valid"
-msgstr "Bohužel zadané jméno nemá správný tvar."
-
-#: inc/ZazitHistoriiFrontend.php:431
-msgid "Password length must be greater than 5"
-msgstr "Heslo musí mít více než 5 znaků"
-
-#: inc/ZazitHistoriiFrontend.php:435
-msgid "Email is not valid"
-msgstr "Email nemá správný tvar"
-
-#: inc/ZazitHistoriiFrontend.php:439 inc/ZazitHistoriiFrontend.php:443
-msgid "Email Already in use"
-msgstr "Tento email je již obsazený."
+msgstr ""
 
 #: inc/ZazitHistoriiFrontend.php:446
-msgid "You must agree with our rules"
-msgstr "Musíte souhlasit s pravidly"
+msgid "Sorry, the username you entered is not valid"
+msgstr ""
 
-#: inc/ZazitHistoriiFrontend.php:655
+#: inc/ZazitHistoriiFrontend.php:450
+msgid "Password length must be greater than 5"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:454
+msgid "Email is not valid"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:458 inc/ZazitHistoriiFrontend.php:462
+msgid "Email Already in use"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:465
+msgid "You must agree with our rules"
+msgstr ""
+
+#: inc/ZazitHistoriiFrontend.php:677
 msgid "Footer Menu"
-msgstr "Menu v patičce"
+msgstr ""
 
 #: library/cuztom/Entities/PostType.php:45
 #: library/cuztom/Entities/PostType.php:52
@@ -441,7 +455,7 @@ msgstr ""
 
 #: library/cuztom/Meta/Box.php:141 library/cuztom/src/Meta/Box.php:141
 msgid "Date"
-msgstr "Datum"
+msgstr ""
 
 #: library/cuztom/Support/Ajax.php:89 library/cuztom/Support/Ajax.php:146
 #: library/cuztom/src/Support/Ajax.php:89
@@ -465,7 +479,7 @@ msgstr ""
 
 #: library/cuztom/resources/views/fields/file.php:21
 msgid "Remove current file"
-msgstr "Odstranit aktualní soubor"
+msgstr ""
 
 #: library/cuztom/resources/views/fields/image.php:14
 msgid "Select image"
@@ -473,15 +487,15 @@ msgstr ""
 
 #: library/cuztom/resources/views/fields/image.php:21
 msgid "Remove current image"
-msgstr "Odstranit aktualní obrázek"
+msgstr ""
 
 #: library/cuztom/resources/views/fields/yes-no.php:5
 msgid "Yes"
-msgstr "Ano"
+msgstr ""
 
 #: library/cuztom/resources/views/fields/yes-no.php:5
 msgid "No"
-msgstr "Ne"
+msgstr ""
 
 #: library/cuztom/src/Cuztom.php:542
 msgid "Use of a reserved term."
@@ -489,128 +503,156 @@ msgstr ""
 
 #: page-edit-event.php:16
 msgid "edit event"
-msgstr "Úprava události"
+msgstr ""
 
 #: page-edit-profil.php:48
 msgid "Nickname"
-msgstr "Přezdívka"
+msgstr ""
 
 #: page-edit-profil.php:52
 msgid "Firstname"
-msgstr "Jméno"
+msgstr ""
 
 #: page-edit-profil.php:56
 msgid "Lastname"
-msgstr "Příjmení"
+msgstr ""
 
-#: page-edit-profil.php:66 templates/events/edit.php:312
+#: page-edit-profil.php:66 templates/events/edit.php:322
 msgid "Save"
-msgstr "Uložit"
+msgstr ""
 
 #: page-login.php:12 page-login.php:18
 msgid "Log In"
-msgstr "Přihlásit se"
+msgstr ""
 
 #: page-login.php:15
 msgid "Username or Email Address"
-msgstr "Přihlašovací jméno nebo email"
+msgstr ""
 
 #: page-login.php:17
 msgid "Remember Me"
-msgstr "Zapamatuj si mě"
+msgstr ""
 
 #: page-login.php:23
 msgid "Registration"
-msgstr "Registrace"
+msgstr ""
 
 #: page-profil.php:34
 msgid "Edit profil"
-msgstr "Úprava profilu"
+msgstr ""
 
 #: page-profil.php:41
 msgid "My events"
-msgstr "Mé události"
+msgstr ""
 
-#: templates/events/archive.php:31
+#: templates/events/archive.php:35
 msgid "Search"
-msgstr "Hledání"
+msgstr ""
 
-#: templates/events/edit.php:119
+#: templates/events/archive.php:136
+msgid "Show more"
+msgstr ""
+
+#: templates/events/edit.php:122
 msgid "Event name must be filled."
-msgstr "Název události není vyplněný."
+msgstr ""
 
-#: templates/events/edit.php:121
+#: templates/events/edit.php:124
 msgid "Event name is too long."
-msgstr "Název události je příliš dlouhý."
+msgstr ""
 
-#: templates/events/edit.php:125
+#: templates/events/edit.php:128
 msgid "At least one date must be filled."
-msgstr "Musí být vyplněné alespoň jedno datum."
+msgstr ""
 
-#: templates/events/edit.php:129
+#: templates/events/edit.php:132
 msgid "At least one age epoch must be filled."
-msgstr "Musí být vyplněné alespoň jedno období."
+msgstr ""
 
-#: templates/events/edit.php:201
+#: templates/events/edit.php:207
 msgid "How to create a new event."
-msgstr "Jak vytvořit novou událost?."
+msgstr ""
 
-#: templates/events/edit.php:214
+#: templates/events/edit.php:220
 msgid "Event name"
-msgstr "Název události"
+msgstr ""
 
-#: templates/events/edit.php:218
+#: templates/events/edit.php:224
 msgid "Event visible only for registrated users"
-msgstr "Událost je viditelná pouze pro registrované uživatele"
+msgstr ""
 
-#: templates/events/edit.php:222
+#: templates/events/edit.php:228
 msgid "Date of start"
-msgstr "Datum začátku"
+msgstr ""
 
-#: templates/events/edit.php:226
+#: templates/events/edit.php:232
 msgid "Date of end"
-msgstr "Datum konce"
+msgstr ""
 
-#: templates/events/edit.php:238
+#: templates/events/edit.php:244
 msgid "Organisator email"
-msgstr "Email na organizátora"
+msgstr ""
 
-#: templates/events/edit.php:239 templates/events/edit.php:244
+#: templates/events/edit.php:245 templates/events/edit.php:250
 msgid "Visible only for registered users"
-msgstr "Viditelné pouze pro registrované uživatele"
+msgstr ""
 
-#: templates/events/edit.php:243
+#: templates/events/edit.php:249
 msgid "Organisator phone"
-msgstr "Telefon na organizátora"
+msgstr ""
 
-#: templates/events/edit.php:248
+#: templates/events/edit.php:254
 msgid "Website"
-msgstr "Web"
+msgstr ""
 
-#: templates/events/edit.php:266
+#: templates/events/edit.php:272
 msgid "At least one"
-msgstr "Alespoň jedno"
+msgstr ""
+
+#: templates/events/edit.php:313
+msgid "Add map location"
+msgstr ""
 
 #: templates/events/single.php:23
 msgid "Edit"
-msgstr "Upravit"
+msgstr ""
 
 #: templates/events/single.php:24
 msgid "Do you really want to remove this item?"
-msgstr "Opravdu chcete odstranit tuto položku?"
+msgstr ""
 
 #: templates/events/single.php:24
 msgid "Remove"
-msgstr "Odstranit"
+msgstr ""
 
-#: templates/events/single.php:112
+#: templates/events/single.php:104
+msgid "Sharing is not possible for not public events"
+msgstr ""
+
+#: templates/events/single.php:106
+msgid "Share:"
+msgstr ""
+
+#: templates/events/single.php:126
 msgid "Published"
-msgstr "Publikováno"
+msgstr ""
 
-#: templates/events/single.php:114
+#: templates/events/single.php:128
 msgid "Modified"
-msgstr "Upraveno"
+msgstr ""
 
-#: templates/events/single.php:118
+#: templates/events/single.php:132
 msgid "Created by"
-msgstr "Vytvořil"
+msgstr ""
+
+msgid "Encyklopedy"
+msgstr ""
+
+msgid "Sources"
+msgstr ""
+
+msgid "Parent"
+msgstr ""
+
+msgid "Children"
+msgstr ""
